@@ -1,0 +1,96 @@
+﻿@model wwdapp.Models.VPN
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>VPN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IPAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IPAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VirtualIPRange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VirtualIPRange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AllowedLANAccess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AllowedLANAccess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NeededBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NeededBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purpose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purpose)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Protocol.Protocol1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Protocol.Protocol1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VPNClass.Class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VPNClass.Class)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,112 @@
+﻿@model wwdapp.Models.InternetDomain
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>InternetDomain</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Registrant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Registrant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DomainName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DomainName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrarName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrarName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrarHomepage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrarHomepage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdministrativeContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdministrativeContactName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpiresOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpiresOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactInformation.Phone1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactInformation.Phone1)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

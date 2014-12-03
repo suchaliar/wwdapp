@@ -1,0 +1,106 @@
+﻿@model wwdapp.Models.InternetDomain
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InternetDomain</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Registrant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Registrant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DomainName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DomainName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrarName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrarName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrarHomepage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrarHomepage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdministrativeContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdministrativeContactName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpiresOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpiresOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactInformation.Phone1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactInformation.Phone1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
