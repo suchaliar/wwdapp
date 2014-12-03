@@ -1,0 +1,3473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WhiteWaveDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccountContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactInformationID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="AccountID" Type="int" />
+        </EntityType>
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactInformationID" Type="int" />
+          <Property Name="AccountTypeID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AccountTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="AcquisitionEvents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="VendorID" Type="int" />
+          <Property Name="AmtPaid" Type="money" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Justification" Type="nvarchar(max)" />
+          <Property Name="DeliveryID" Type="int" />
+        </EntityType>
+        <EntityType Name="BankDeposit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CLOU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="ContactInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="City1" Type="nvarchar" MaxLength="50" />
+          <Property Name="State1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="City2" Type="nvarchar" MaxLength="50" />
+          <Property Name="State2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Phone3" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DeliveryMade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateOrdered" Type="date" />
+          <Property Name="DateDelivered" Type="date" />
+          <Property Name="EmployeeOrderedID" Type="int" />
+          <Property Name="EmployeeDeliveredID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="AccountID" Type="int" />
+        </EntityType>
+        <EntityType Name="DeliveryReceived">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateOrdered" Type="datetime" />
+          <Property Name="EmployeeOrderedID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DateReceived" Type="datetime" />
+          <Property Name="EmployeeReceivingID" Type="int" />
+        </EntityType>
+        <EntityType Name="EmailAddresses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountID" Type="int" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="SSN" Type="nchar" MaxLength="20" />
+          <Property Name="HireDate" Type="date" />
+          <Property Name="EmployeeTypeID" Type="int" />
+          <Property Name="ContactInformationID" Type="int" />
+        </EntityType>
+        <EntityType Name="EmployeeTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="ExpenditureEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Justification" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="InternetDomains">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="Registrant" Type="nvarchar" MaxLength="50" />
+          <Property Name="DomainName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegistrarName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegistrarHomepage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nchar" MaxLength="30" />
+          <Property Name="Password" Type="nchar" MaxLength="30" />
+          <Property Name="AdministrativeContactName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdministrativeContactInformationID" Type="int" />
+          <Property Name="CreatedOn" Type="date" />
+          <Property Name="ExpiresOn" Type="date" />
+        </EntityType>
+        <EntityType Name="Invoices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="Description" Type="int" />
+          <Property Name="TicketID" Type="int" />
+          <Property Name="ProjectID" Type="int" />
+          <Property Name="BilledItems" Type="nvarchar(max)" />
+          <Property Name="DeliveryMadeID" Type="int" />
+          <Property Name="Total" Type="money" />
+        </EntityType>
+        <EntityType Name="IPAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Purpose" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="AccountID" Type="int" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Cost" Type="money" />
+          <Property Name="AcquisitionEventID" Type="int" />
+          <Property Name="ItemStatusID" Type="int" />
+          <Property Name="ItemTypeID" Type="int" />
+          <Property Name="DeliveryMadeID" Type="int" />
+        </EntityType>
+        <EntityType Name="ItemStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="ItemTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemType" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="MOU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="date" />
+          <Property Name="ContactInformationID" Type="int" />
+        </EntityType>
+        <EntityType Name="PaymentReceived">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="EmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Priorities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Priority" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Procedure">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="AuthorID" Type="int" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="ProjectEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="int" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="TimeStart" Type="datetime" />
+          <Property Name="TimeEnd" Type="datetime" />
+          <Property Name="MaterialsUsed" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateStart" Type="datetime" />
+          <Property Name="DateComplete" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="TypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjectTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Protocols">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Protocol" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="QueryEvents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactInformationID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Date" Type="date" />
+          <Property Name="StatusID" Type="int" />
+          <Property Name="TypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="QueryStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="QueryType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeID" Type="int" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="DateStart" Type="date" />
+          <Property Name="DateEnd" Type="date" />
+        </EntityType>
+        <EntityType Name="ServiceTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="SoftwareInstallation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="SoftwareName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Version" Type="nvarchar" MaxLength="50" />
+          <Property Name="LicenseStart" Type="date" />
+          <Property Name="LicenseEnd" Type="date" />
+          <Property Name="MachineInstalledOn" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SupportAgreement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="DateStart" Type="date" />
+          <Property Name="DateEnd" Type="date" />
+        </EntityType>
+        <EntityType Name="SupportEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TimeStart" Type="datetime" />
+          <Property Name="TimeEnd" Type="datetime" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="ProcedureID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="TicketID" Type="int" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="StatusID" Type="int" />
+          <Property Name="DateOpened" Type="datetime" />
+          <Property Name="DateClosed" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="PriorityID" Type="int" />
+        </EntityType>
+        <EntityType Name="TicketStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactInformationID" Type="int" />
+          <Property Name="StatusID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="VendorContacts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactInformationID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="VendorID" Type="int" />
+        </EntityType>
+        <EntityType Name="VendorStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="VPNClasses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Class" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="VPNs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="ClassID" Type="int" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="VirtualIPRange" Type="nvarchar" MaxLength="50" />
+          <Property Name="AllowedLANAccess" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="NeededBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Purpose" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProtocolID" Type="int" />
+        </EntityType>
+        <Association Name="FK_AccountContact_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="AccountContact" Type="Self.AccountContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountContact">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountContact_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="AccountContact" Type="Self.AccountContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountContact">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_AccountTypes">
+          <End Role="AccountTypes" Type="Self.AccountTypes" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="AccountTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AcquisitionEvents_DeliveryReceived">
+          <End Role="DeliveryReceived" Type="Self.DeliveryReceived" Multiplicity="0..1" />
+          <End Role="AcquisitionEvents" Type="Self.AcquisitionEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryReceived">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AcquisitionEvents">
+              <PropertyRef Name="DeliveryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AcquisitionEvents_Vendors">
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+          <End Role="AcquisitionEvents" Type="Self.AcquisitionEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AcquisitionEvents">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BankDeposit_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="BankDeposit" Type="Self.BankDeposit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankDeposit">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLOU_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="CLOU" Type="Self.CLOU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CLOU">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryMade_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="DeliveryMade" Type="Self.DeliveryMade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryMade">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryMade_EmployeeDelivered">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="DeliveryMade" Type="Self.DeliveryMade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryMade">
+              <PropertyRef Name="EmployeeDeliveredID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryMade_EmployeeOrdered">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="DeliveryMade" Type="Self.DeliveryMade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryMade">
+              <PropertyRef Name="EmployeeOrderedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryReceived_EmployeeOrdered">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="DeliveryReceived" Type="Self.DeliveryReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryReceived">
+              <PropertyRef Name="EmployeeOrderedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryReceived_EmployeeReceiving">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="DeliveryReceived" Type="Self.DeliveryReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryReceived">
+              <PropertyRef Name="EmployeeReceivingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailAddresses_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="EmailAddresses" Type="Self.EmailAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmailAddresses">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_EmployeeTypes">
+          <End Role="EmployeeTypes" Type="Self.EmployeeTypes" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="EmployeeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpenditureEvent_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="ExpenditureEvent" Type="Self.ExpenditureEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpenditureEvent">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InternetDomains_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="InternetDomains" Type="Self.InternetDomains" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InternetDomains">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InternetDomains_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="InternetDomains" Type="Self.InternetDomains" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InternetDomains">
+              <PropertyRef Name="AdministrativeContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_DeliveryMade">
+          <End Role="DeliveryMade" Type="Self.DeliveryMade" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryMade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="DeliveryMadeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Ticket">
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="TicketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IPAddress_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="IPAddress" Type="Self.IPAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IPAddress">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_AcquisitionEvents">
+          <End Role="AcquisitionEvents" Type="Self.AcquisitionEvents" Multiplicity="0..1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcquisitionEvents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="AcquisitionEventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_DeliveryMade">
+          <End Role="DeliveryMade" Type="Self.DeliveryMade" Multiplicity="0..1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryMade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="DeliveryMadeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_ItemStatus">
+          <End Role="ItemStatus" Type="Self.ItemStatus" Multiplicity="0..1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="ItemStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_ItemTypes">
+          <End Role="ItemTypes" Type="Self.ItemTypes" Multiplicity="0..1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="ItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOU_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="MOU" Type="Self.MOU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MOU">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentReceived_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="PaymentReceived" Type="Self.PaymentReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PaymentReceived">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentReceived_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="PaymentReceived" Type="Self.PaymentReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PaymentReceived">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Procedure_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Procedure" Type="Self.Procedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Procedure">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEvent_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="ProjectEvent" Type="Self.ProjectEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEvent">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEvent_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="ProjectEvent" Type="Self.ProjectEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEvent">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ProjectsTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="0..1" />
+          <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QueryEvents_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="QueryEvents" Type="Self.QueryEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QueryEvents">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QueryEvents_QueryStatus">
+          <End Role="QueryStatus" Type="Self.QueryStatus" Multiplicity="0..1" />
+          <End Role="QueryEvents" Type="Self.QueryEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QueryStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QueryEvents">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QueryEvents_QueryType">
+          <End Role="QueryType" Type="Self.QueryType" Multiplicity="0..1" />
+          <End Role="QueryEvents" Type="Self.QueryEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QueryType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QueryEvents">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="Services" Type="Self.Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_ServiceTypes">
+          <End Role="ServiceTypes" Type="Self.ServiceTypes" Multiplicity="0..1" />
+          <End Role="Services" Type="Self.Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoftwareInstallation_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="SoftwareInstallation" Type="Self.SoftwareInstallation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SoftwareInstallation">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoftwareInstallation_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="SoftwareInstallation" Type="Self.SoftwareInstallation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SoftwareInstallation">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupportAgreement_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="SupportAgreement" Type="Self.SupportAgreement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportAgreement">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupportEvent_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="SupportEvent" Type="Self.SupportEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportEvent">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupportEvent_Procedures">
+          <End Role="Procedure" Type="Self.Procedure" Multiplicity="0..1" />
+          <End Role="SupportEvent" Type="Self.SupportEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedure">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportEvent">
+              <PropertyRef Name="ProcedureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupportEvent_Ticket">
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="0..1" />
+          <End Role="SupportEvent" Type="Self.SupportEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportEvent">
+              <PropertyRef Name="TicketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_Priorities">
+          <End Role="Priorities" Type="Self.Priorities" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priorities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="PriorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_TicketStatus">
+          <End Role="TicketStatus" Type="Self.TicketStatus" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vendor_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vendor_VendorStatus">
+          <End Role="VendorStatus" Type="Self.VendorStatus" Multiplicity="0..1" />
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VendorStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorContacts_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="VendorContacts" Type="Self.VendorContacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorContacts">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorContacts_Vendor">
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+          <End Role="VendorContacts" Type="Self.VendorContacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorContacts">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VPNs_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="VPNs" Type="Self.VPNs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VPNs">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VPNs_Protocols">
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="0..1" />
+          <End Role="VPNs" Type="Self.VPNs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Protocols">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VPNs">
+              <PropertyRef Name="ProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VPNs_VPNClasses">
+          <End Role="VPNClasses" Type="Self.VPNClasses" Multiplicity="0..1" />
+          <End Role="VPNs" Type="Self.VPNs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VPNClasses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VPNs">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WhiteWaveDBModelStoreContainer">
+          <EntitySet Name="AccountContact" EntityType="Self.AccountContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountTypes" EntityType="Self.AccountTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AcquisitionEvents" EntityType="Self.AcquisitionEvents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BankDeposit" EntityType="Self.BankDeposit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLOU" EntityType="Self.CLOU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactInformation" EntityType="Self.ContactInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryMade" EntityType="Self.DeliveryMade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryReceived" EntityType="Self.DeliveryReceived" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailAddresses" EntityType="Self.EmailAddresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeTypes" EntityType="Self.EmployeeTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpenditureEvent" EntityType="Self.ExpenditureEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InternetDomains" EntityType="Self.InternetDomains" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IPAddress" EntityType="Self.IPAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemStatus" EntityType="Self.ItemStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemTypes" EntityType="Self.ItemTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MOU" EntityType="Self.MOU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentReceived" EntityType="Self.PaymentReceived" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Priorities" EntityType="Self.Priorities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Procedure" EntityType="Self.Procedure" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectEvent" EntityType="Self.ProjectEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectTypes" EntityType="Self.ProjectTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Protocols" EntityType="Self.Protocols" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QueryEvents" EntityType="Self.QueryEvents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QueryStatus" EntityType="Self.QueryStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QueryType" EntityType="Self.QueryType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceTypes" EntityType="Self.ServiceTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SoftwareInstallation" EntityType="Self.SoftwareInstallation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupportAgreement" EntityType="Self.SupportAgreement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupportEvent" EntityType="Self.SupportEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketStatus" EntityType="Self.TicketStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VendorContacts" EntityType="Self.VendorContacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VendorStatus" EntityType="Self.VendorStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VPNClasses" EntityType="Self.VPNClasses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VPNs" EntityType="Self.VPNs" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AccountContact_Accounts" Association="Self.FK_AccountContact_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="AccountContact" EntitySet="AccountContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountContact_ContactInformation" Association="Self.FK_AccountContact_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformation" />
+            <End Role="AccountContact" EntitySet="AccountContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_AccountTypes" Association="Self.FK_Accounts_AccountTypes">
+            <End Role="AccountTypes" EntitySet="AccountTypes" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_ContactInformation" Association="Self.FK_Accounts_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformation" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AcquisitionEvents_DeliveryReceived" Association="Self.FK_AcquisitionEvents_DeliveryReceived">
+            <End Role="DeliveryReceived" EntitySet="DeliveryReceived" />
+            <End Role="AcquisitionEvents" EntitySet="AcquisitionEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AcquisitionEvents_Vendors" Association="Self.FK_AcquisitionEvents_Vendors">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="AcquisitionEvents" EntitySet="AcquisitionEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BankDeposit_Employees" Association="Self.FK_BankDeposit_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="BankDeposit" EntitySet="BankDeposit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLOU_Employees" Association="Self.FK_CLOU_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="CLOU" EntitySet="CLOU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryMade_Accounts" Association="Self.FK_DeliveryMade_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="DeliveryMade" EntitySet="DeliveryMade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryMade_EmployeeDelivered" Association="Self.FK_DeliveryMade_EmployeeDelivered">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="DeliveryMade" EntitySet="DeliveryMade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryMade_EmployeeOrdered" Association="Self.FK_DeliveryMade_EmployeeOrdered">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="DeliveryMade" EntitySet="DeliveryMade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryReceived_EmployeeOrdered" Association="Self.FK_DeliveryReceived_EmployeeOrdered">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="DeliveryReceived" EntitySet="DeliveryReceived" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryReceived_EmployeeReceiving" Association="Self.FK_DeliveryReceived_EmployeeReceiving">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="DeliveryReceived" EntitySet="DeliveryReceived" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailAddresses_Accounts" Association="Self.FK_EmailAddresses_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="EmailAddresses" EntitySet="EmailAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_ContactInformation" Association="Self.FK_Employees_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformation" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_EmployeeTypes" Association="Self.FK_Employees_EmployeeTypes">
+            <End Role="EmployeeTypes" EntitySet="EmployeeTypes" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpenditureEvent_Employees" Association="Self.FK_ExpenditureEvent_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ExpenditureEvent" EntitySet="ExpenditureEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InternetDomains_Accounts" Association="Self.FK_InternetDomains_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="InternetDomains" EntitySet="InternetDomains" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InternetDomains_ContactInformation" Association="Self.FK_InternetDomains_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformation" />
+            <End Role="InternetDomains" EntitySet="InternetDomains" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Accounts" Association="Self.FK_Invoices_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_DeliveryMade" Association="Self.FK_Invoices_DeliveryMade">
+            <End Role="DeliveryMade" EntitySet="DeliveryMade" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Projects" Association="Self.FK_Invoices_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Ticket" Association="Self.FK_Invoices_Ticket">
+            <End Role="Ticket" EntitySet="Ticket" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IPAddress_Accounts" Association="Self.FK_IPAddress_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="IPAddress" EntitySet="IPAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_AcquisitionEvents" Association="Self.FK_Items_AcquisitionEvents">
+            <End Role="AcquisitionEvents" EntitySet="AcquisitionEvents" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_DeliveryMade" Association="Self.FK_Items_DeliveryMade">
+            <End Role="DeliveryMade" EntitySet="DeliveryMade" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_ItemStatus" Association="Self.FK_Items_ItemStatus">
+            <End Role="ItemStatus" EntitySet="ItemStatus" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_ItemTypes" Association="Self.FK_Items_ItemTypes">
+            <End Role="ItemTypes" EntitySet="ItemTypes" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOU_ContactInformation" Association="Self.FK_MOU_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformation" />
+            <End Role="MOU" EntitySet="MOU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentReceived_Accounts" Association="Self.FK_PaymentReceived_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="PaymentReceived" EntitySet="PaymentReceived" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentReceived_Employees" Association="Self.FK_PaymentReceived_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="PaymentReceived" EntitySet="PaymentReceived" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Procedure_Employees" Association="Self.FK_Procedure_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Procedure" EntitySet="Procedure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEvent_Employees" Association="Self.FK_ProjectEvent_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ProjectEvent" EntitySet="ProjectEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEvent_Projects" Association="Self.FK_ProjectEvent_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectEvent" EntitySet="ProjectEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Accounts" Association="Self.FK_Projects_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ProjectsTypes" Association="Self.FK_Projects_ProjectsTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QueryEvents_ContactInformation" Association="Self.FK_QueryEvents_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformation" />
+            <End Role="QueryEvents" EntitySet="QueryEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QueryEvents_QueryStatus" Association="Self.FK_QueryEvents_QueryStatus">
+            <End Role="QueryStatus" EntitySet="QueryStatus" />
+            <End Role="QueryEvents" EntitySet="QueryEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QueryEvents_QueryType" Association="Self.FK_QueryEvents_QueryType">
+            <End Role="QueryType" EntitySet="QueryType" />
+            <End Role="QueryEvents" EntitySet="QueryEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_Accounts" Association="Self.FK_Services_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_ServiceTypes" Association="Self.FK_Services_ServiceTypes">
+            <End Role="ServiceTypes" EntitySet="ServiceTypes" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoftwareInstallation_Accounts" Association="Self.FK_SoftwareInstallation_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="SoftwareInstallation" EntitySet="SoftwareInstallation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoftwareInstallation_Employees" Association="Self.FK_SoftwareInstallation_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="SoftwareInstallation" EntitySet="SoftwareInstallation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupportAgreement_Accounts" Association="Self.FK_SupportAgreement_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="SupportAgreement" EntitySet="SupportAgreement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupportEvent_Employees" Association="Self.FK_SupportEvent_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="SupportEvent" EntitySet="SupportEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupportEvent_Procedures" Association="Self.FK_SupportEvent_Procedures">
+            <End Role="Procedure" EntitySet="Procedure" />
+            <End Role="SupportEvent" EntitySet="SupportEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupportEvent_Ticket" Association="Self.FK_SupportEvent_Ticket">
+            <End Role="Ticket" EntitySet="Ticket" />
+            <End Role="SupportEvent" EntitySet="SupportEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_Accounts" Association="Self.FK_Ticket_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_Employees" Association="Self.FK_Ticket_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_Priorities" Association="Self.FK_Ticket_Priorities">
+            <End Role="Priorities" EntitySet="Priorities" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_TicketStatus" Association="Self.FK_Ticket_TicketStatus">
+            <End Role="TicketStatus" EntitySet="TicketStatus" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vendor_ContactInformation" Association="Self.FK_Vendor_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformation" />
+            <End Role="Vendor" EntitySet="Vendor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vendor_VendorStatus" Association="Self.FK_Vendor_VendorStatus">
+            <End Role="VendorStatus" EntitySet="VendorStatus" />
+            <End Role="Vendor" EntitySet="Vendor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorContacts_ContactInformation" Association="Self.FK_VendorContacts_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformation" />
+            <End Role="VendorContacts" EntitySet="VendorContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorContacts_Vendor" Association="Self.FK_VendorContacts_Vendor">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="VendorContacts" EntitySet="VendorContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VPNs_Accounts" Association="Self.FK_VPNs_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="VPNs" EntitySet="VPNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VPNs_Protocols" Association="Self.FK_VPNs_Protocols">
+            <End Role="Protocols" EntitySet="Protocols" />
+            <End Role="VPNs" EntitySet="VPNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VPNs_VPNClasses" Association="Self.FK_VPNs_VPNClasses">
+            <End Role="VPNClasses" EntitySet="VPNClasses" />
+            <End Role="VPNs" EntitySet="VPNs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WhiteWaveDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccountContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactInformationID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccountID" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_AccountContact_Accounts" FromRole="AccountContact" ToRole="Accounts" />
+          <NavigationProperty Name="ContactInformation" Relationship="Self.FK_AccountContact_ContactInformation" FromRole="AccountContact" ToRole="ContactInformation" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactInformationID" Type="Int32" />
+          <Property Name="AccountTypeID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccountContacts" Relationship="Self.FK_AccountContact_Accounts" FromRole="Accounts" ToRole="AccountContact" />
+          <NavigationProperty Name="AccountType" Relationship="Self.FK_Accounts_AccountTypes" FromRole="Accounts" ToRole="AccountTypes" />
+          <NavigationProperty Name="ContactInformation" Relationship="Self.FK_Accounts_ContactInformation" FromRole="Accounts" ToRole="ContactInformation" />
+          <NavigationProperty Name="DeliveryMades" Relationship="Self.FK_DeliveryMade_Accounts" FromRole="Accounts" ToRole="DeliveryMade" />
+          <NavigationProperty Name="EmailAddresses" Relationship="Self.FK_EmailAddresses_Accounts" FromRole="Accounts" ToRole="EmailAddresses" />
+          <NavigationProperty Name="InternetDomains" Relationship="Self.FK_InternetDomains_Accounts" FromRole="Accounts" ToRole="InternetDomains" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Accounts" FromRole="Accounts" ToRole="Invoices" />
+          <NavigationProperty Name="IPAddresses" Relationship="Self.FK_IPAddress_Accounts" FromRole="Accounts" ToRole="IPAddress" />
+          <NavigationProperty Name="PaymentReceiveds" Relationship="Self.FK_PaymentReceived_Accounts" FromRole="Accounts" ToRole="PaymentReceived" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_Accounts" FromRole="Accounts" ToRole="Projects" />
+          <NavigationProperty Name="Services" Relationship="Self.FK_Services_Accounts" FromRole="Accounts" ToRole="Services" />
+          <NavigationProperty Name="SoftwareInstallations" Relationship="Self.FK_SoftwareInstallation_Accounts" FromRole="Accounts" ToRole="SoftwareInstallation" />
+          <NavigationProperty Name="SupportAgreements" Relationship="Self.FK_SupportAgreement_Accounts" FromRole="Accounts" ToRole="SupportAgreement" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK_Ticket_Accounts" FromRole="Accounts" ToRole="Ticket" />
+          <NavigationProperty Name="VPNs" Relationship="Self.FK_VPNs_Accounts" FromRole="Accounts" ToRole="VPNs" />
+        </EntityType>
+        <EntityType Name="AccountType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Accounts_AccountTypes" FromRole="AccountTypes" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="AcquisitionEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="VendorID" Type="Int32" />
+          <Property Name="AmtPaid" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Justification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryID" Type="Int32" />
+          <NavigationProperty Name="DeliveryReceived" Relationship="Self.FK_AcquisitionEvents_DeliveryReceived" FromRole="AcquisitionEvents" ToRole="DeliveryReceived" />
+          <NavigationProperty Name="Vendor" Relationship="Self.FK_AcquisitionEvents_Vendors" FromRole="AcquisitionEvents" ToRole="Vendor" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Items_AcquisitionEvents" FromRole="AcquisitionEvents" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="BankDeposit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_BankDeposit_Employees" FromRole="BankDeposit" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="CLOU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_CLOU_Employees" FromRole="CLOU" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="ContactInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zip1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zip2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccountContacts" Relationship="Self.FK_AccountContact_ContactInformation" FromRole="ContactInformation" ToRole="AccountContact" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Accounts_ContactInformation" FromRole="ContactInformation" ToRole="Accounts" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_ContactInformation" FromRole="ContactInformation" ToRole="Employees" />
+          <NavigationProperty Name="InternetDomains" Relationship="Self.FK_InternetDomains_ContactInformation" FromRole="ContactInformation" ToRole="InternetDomains" />
+          <NavigationProperty Name="MOUs" Relationship="Self.FK_MOU_ContactInformation" FromRole="ContactInformation" ToRole="MOU" />
+          <NavigationProperty Name="QueryEvents" Relationship="Self.FK_QueryEvents_ContactInformation" FromRole="ContactInformation" ToRole="QueryEvents" />
+          <NavigationProperty Name="Vendors" Relationship="Self.FK_Vendor_ContactInformation" FromRole="ContactInformation" ToRole="Vendor" />
+          <NavigationProperty Name="VendorContacts" Relationship="Self.FK_VendorContacts_ContactInformation" FromRole="ContactInformation" ToRole="VendorContacts" />
+        </EntityType>
+        <EntityType Name="DeliveryMade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateOrdered" Type="DateTime" Precision="0" />
+          <Property Name="DateDelivered" Type="DateTime" Precision="0" />
+          <Property Name="EmployeeOrderedID" Type="Int32" />
+          <Property Name="EmployeeDeliveredID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccountID" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_DeliveryMade_Accounts" FromRole="DeliveryMade" ToRole="Accounts" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_DeliveryMade_EmployeeDelivered" FromRole="DeliveryMade" ToRole="Employees" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK_DeliveryMade_EmployeeOrdered" FromRole="DeliveryMade" ToRole="Employees" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_DeliveryMade" FromRole="DeliveryMade" ToRole="Invoices" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Items_DeliveryMade" FromRole="DeliveryMade" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="DeliveryReceived">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateOrdered" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeOrderedID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateReceived" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeReceivingID" Type="Int32" />
+          <NavigationProperty Name="AcquisitionEvents" Relationship="Self.FK_AcquisitionEvents_DeliveryReceived" FromRole="DeliveryReceived" ToRole="AcquisitionEvents" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_DeliveryReceived_EmployeeOrdered" FromRole="DeliveryReceived" ToRole="Employees" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK_DeliveryReceived_EmployeeReceiving" FromRole="DeliveryReceived" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="EmailAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountID" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_EmailAddresses_Accounts" FromRole="EmailAddresses" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="SSN" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="HireDate" Type="DateTime" Precision="0" />
+          <Property Name="EmployeeTypeID" Type="Int32" />
+          <Property Name="ContactInformationID" Type="Int32" />
+          <NavigationProperty Name="BankDeposits" Relationship="Self.FK_BankDeposit_Employees" FromRole="Employees" ToRole="BankDeposit" />
+          <NavigationProperty Name="CLOUs" Relationship="Self.FK_CLOU_Employees" FromRole="Employees" ToRole="CLOU" />
+          <NavigationProperty Name="ContactInformation" Relationship="Self.FK_Employees_ContactInformation" FromRole="Employees" ToRole="ContactInformation" />
+          <NavigationProperty Name="DeliveryMades" Relationship="Self.FK_DeliveryMade_EmployeeDelivered" FromRole="Employees" ToRole="DeliveryMade" />
+          <NavigationProperty Name="DeliveryMades1" Relationship="Self.FK_DeliveryMade_EmployeeOrdered" FromRole="Employees" ToRole="DeliveryMade" />
+          <NavigationProperty Name="DeliveryReceiveds" Relationship="Self.FK_DeliveryReceived_EmployeeOrdered" FromRole="Employees" ToRole="DeliveryReceived" />
+          <NavigationProperty Name="DeliveryReceiveds1" Relationship="Self.FK_DeliveryReceived_EmployeeReceiving" FromRole="Employees" ToRole="DeliveryReceived" />
+          <NavigationProperty Name="EmployeeType" Relationship="Self.FK_Employees_EmployeeTypes" FromRole="Employees" ToRole="EmployeeTypes" />
+          <NavigationProperty Name="ExpenditureEvents" Relationship="Self.FK_ExpenditureEvent_Employees" FromRole="Employees" ToRole="ExpenditureEvent" />
+          <NavigationProperty Name="PaymentReceiveds" Relationship="Self.FK_PaymentReceived_Employees" FromRole="Employees" ToRole="PaymentReceived" />
+          <NavigationProperty Name="Procedures" Relationship="Self.FK_Procedure_Employees" FromRole="Employees" ToRole="Procedure" />
+          <NavigationProperty Name="ProjectEvents" Relationship="Self.FK_ProjectEvent_Employees" FromRole="Employees" ToRole="ProjectEvent" />
+          <NavigationProperty Name="SoftwareInstallations" Relationship="Self.FK_SoftwareInstallation_Employees" FromRole="Employees" ToRole="SoftwareInstallation" />
+          <NavigationProperty Name="SupportEvents" Relationship="Self.FK_SupportEvent_Employees" FromRole="Employees" ToRole="SupportEvent" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK_Ticket_Employees" FromRole="Employees" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="EmployeeType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_EmployeeTypes" FromRole="EmployeeTypes" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="ExpenditureEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Justification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_ExpenditureEvent_Employees" FromRole="ExpenditureEvent" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="InternetDomain">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="Registrant" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DomainName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrarName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrarHomepage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="AdministrativeContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdministrativeContactInformationID" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <Property Name="ExpiresOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_InternetDomains_Accounts" FromRole="InternetDomains" ToRole="Accounts" />
+          <NavigationProperty Name="ContactInformation" Relationship="Self.FK_InternetDomains_ContactInformation" FromRole="InternetDomains" ToRole="ContactInformation" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="Description" Type="Int32" />
+          <Property Name="TicketID" Type="Int32" />
+          <Property Name="ProjectID" Type="Int32" />
+          <Property Name="BilledItems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryMadeID" Type="Int32" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Invoices_Accounts" FromRole="Invoices" ToRole="Accounts" />
+          <NavigationProperty Name="DeliveryMade" Relationship="Self.FK_Invoices_DeliveryMade" FromRole="Invoices" ToRole="DeliveryMade" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_Invoices_Projects" FromRole="Invoices" ToRole="Projects" />
+          <NavigationProperty Name="Ticket" Relationship="Self.FK_Invoices_Ticket" FromRole="Invoices" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="IPAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Purpose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccountID" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_IPAddress_Accounts" FromRole="IPAddress" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AcquisitionEventID" Type="Int32" />
+          <Property Name="ItemStatusID" Type="Int32" />
+          <Property Name="ItemTypeID" Type="Int32" />
+          <Property Name="DeliveryMadeID" Type="Int32" />
+          <NavigationProperty Name="AcquisitionEvent" Relationship="Self.FK_Items_AcquisitionEvents" FromRole="Items" ToRole="AcquisitionEvents" />
+          <NavigationProperty Name="DeliveryMade" Relationship="Self.FK_Items_DeliveryMade" FromRole="Items" ToRole="DeliveryMade" />
+          <NavigationProperty Name="ItemStatu" Relationship="Self.FK_Items_ItemStatus" FromRole="Items" ToRole="ItemStatus" />
+          <NavigationProperty Name="ItemType" Relationship="Self.FK_Items_ItemTypes" FromRole="Items" ToRole="ItemTypes" />
+        </EntityType>
+        <EntityType Name="ItemStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Items_ItemStatus" FromRole="ItemStatus" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemType1" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Items_ItemTypes" FromRole="ItemTypes" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="MOU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="ContactInformationID" Type="Int32" />
+          <NavigationProperty Name="ContactInformation" Relationship="Self.FK_MOU_ContactInformation" FromRole="MOU" ToRole="ContactInformation" />
+        </EntityType>
+        <EntityType Name="PaymentReceived">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_PaymentReceived_Accounts" FromRole="PaymentReceived" ToRole="Accounts" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_PaymentReceived_Employees" FromRole="PaymentReceived" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Priority">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Priority1" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK_Ticket_Priorities" FromRole="Priorities" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Procedure">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorID" Type="Int32" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Procedure_Employees" FromRole="Procedure" ToRole="Employees" />
+          <NavigationProperty Name="SupportEvents" Relationship="Self.FK_SupportEvent_Procedures" FromRole="Procedure" ToRole="SupportEvent" />
+        </EntityType>
+        <EntityType Name="ProjectEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TimeStart" Type="DateTime" Precision="3" />
+          <Property Name="TimeEnd" Type="DateTime" Precision="3" />
+          <Property Name="MaterialsUsed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_ProjectEvent_Employees" FromRole="ProjectEvent" ToRole="Employees" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_ProjectEvent_Projects" FromRole="ProjectEvent" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateStart" Type="DateTime" Precision="3" />
+          <Property Name="DateComplete" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="TypeID" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Projects_Accounts" FromRole="Projects" ToRole="Accounts" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Projects" FromRole="Projects" ToRole="Invoices" />
+          <NavigationProperty Name="ProjectEvents" Relationship="Self.FK_ProjectEvent_Projects" FromRole="Projects" ToRole="ProjectEvent" />
+          <NavigationProperty Name="ProjectType" Relationship="Self.FK_Projects_ProjectsTypes" FromRole="Projects" ToRole="ProjectTypes" />
+        </EntityType>
+        <EntityType Name="ProjectType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_ProjectsTypes" FromRole="ProjectTypes" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="Protocol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Protocol1" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="VPNs" Relationship="Self.FK_VPNs_Protocols" FromRole="Protocols" ToRole="VPNs" />
+        </EntityType>
+        <EntityType Name="QueryEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactInformationID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="TypeID" Type="Int32" />
+          <NavigationProperty Name="ContactInformation" Relationship="Self.FK_QueryEvents_ContactInformation" FromRole="QueryEvents" ToRole="ContactInformation" />
+          <NavigationProperty Name="QueryStatu" Relationship="Self.FK_QueryEvents_QueryStatus" FromRole="QueryEvents" ToRole="QueryStatus" />
+          <NavigationProperty Name="QueryType" Relationship="Self.FK_QueryEvents_QueryType" FromRole="QueryEvents" ToRole="QueryType" />
+        </EntityType>
+        <EntityType Name="QueryStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="QueryEvents" Relationship="Self.FK_QueryEvents_QueryStatus" FromRole="QueryStatus" ToRole="QueryEvents" />
+        </EntityType>
+        <EntityType Name="QueryType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="QueryEvents" Relationship="Self.FK_QueryEvents_QueryType" FromRole="QueryType" ToRole="QueryEvents" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeID" Type="Int32" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateStart" Type="DateTime" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Services_Accounts" FromRole="Services" ToRole="Accounts" />
+          <NavigationProperty Name="ServiceType" Relationship="Self.FK_Services_ServiceTypes" FromRole="Services" ToRole="ServiceTypes" />
+        </EntityType>
+        <EntityType Name="ServiceType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Services" Relationship="Self.FK_Services_ServiceTypes" FromRole="ServiceTypes" ToRole="Services" />
+        </EntityType>
+        <EntityType Name="SoftwareInstallation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="SoftwareName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LicenseStart" Type="DateTime" Precision="0" />
+          <Property Name="LicenseEnd" Type="DateTime" Precision="0" />
+          <Property Name="MachineInstalledOn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_SoftwareInstallation_Accounts" FromRole="SoftwareInstallation" ToRole="Accounts" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_SoftwareInstallation_Employees" FromRole="SoftwareInstallation" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="SupportAgreement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="DateStart" Type="DateTime" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_SupportAgreement_Accounts" FromRole="SupportAgreement" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="SupportEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TimeStart" Type="DateTime" Precision="3" />
+          <Property Name="TimeEnd" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="ProcedureID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TicketID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_SupportEvent_Employees" FromRole="SupportEvent" ToRole="Employees" />
+          <NavigationProperty Name="Procedure" Relationship="Self.FK_SupportEvent_Procedures" FromRole="SupportEvent" ToRole="Procedure" />
+          <NavigationProperty Name="Ticket" Relationship="Self.FK_SupportEvent_Ticket" FromRole="SupportEvent" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="DateOpened" Type="DateTime" Precision="3" />
+          <Property Name="DateClosed" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PriorityID" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Ticket_Accounts" FromRole="Ticket" ToRole="Accounts" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Ticket_Employees" FromRole="Ticket" ToRole="Employees" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Ticket" FromRole="Ticket" ToRole="Invoices" />
+          <NavigationProperty Name="Priority" Relationship="Self.FK_Ticket_Priorities" FromRole="Ticket" ToRole="Priorities" />
+          <NavigationProperty Name="SupportEvents" Relationship="Self.FK_SupportEvent_Ticket" FromRole="Ticket" ToRole="SupportEvent" />
+          <NavigationProperty Name="TicketStatu" Relationship="Self.FK_Ticket_TicketStatus" FromRole="Ticket" ToRole="TicketStatus" />
+        </EntityType>
+        <EntityType Name="TicketStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK_Ticket_TicketStatus" FromRole="TicketStatus" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactInformationID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AcquisitionEvents" Relationship="Self.FK_AcquisitionEvents_Vendors" FromRole="Vendor" ToRole="AcquisitionEvents" />
+          <NavigationProperty Name="ContactInformation" Relationship="Self.FK_Vendor_ContactInformation" FromRole="Vendor" ToRole="ContactInformation" />
+          <NavigationProperty Name="VendorStatu" Relationship="Self.FK_Vendor_VendorStatus" FromRole="Vendor" ToRole="VendorStatus" />
+          <NavigationProperty Name="VendorContacts" Relationship="Self.FK_VendorContacts_Vendor" FromRole="Vendor" ToRole="VendorContacts" />
+        </EntityType>
+        <EntityType Name="VendorContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactInformationID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VendorID" Type="Int32" />
+          <NavigationProperty Name="ContactInformation" Relationship="Self.FK_VendorContacts_ContactInformation" FromRole="VendorContacts" ToRole="ContactInformation" />
+          <NavigationProperty Name="Vendor" Relationship="Self.FK_VendorContacts_Vendor" FromRole="VendorContacts" ToRole="Vendor" />
+        </EntityType>
+        <EntityType Name="VendorStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Vendors" Relationship="Self.FK_Vendor_VendorStatus" FromRole="VendorStatus" ToRole="Vendor" />
+        </EntityType>
+        <EntityType Name="VPNClass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Class" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="VPNs" Relationship="Self.FK_VPNs_VPNClasses" FromRole="VPNClasses" ToRole="VPNs" />
+        </EntityType>
+        <EntityType Name="VPN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="ClassID" Type="Int32" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VirtualIPRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AllowedLANAccess" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NeededBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Purpose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProtocolID" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_VPNs_Accounts" FromRole="VPNs" ToRole="Accounts" />
+          <NavigationProperty Name="Protocol" Relationship="Self.FK_VPNs_Protocols" FromRole="VPNs" ToRole="Protocols" />
+          <NavigationProperty Name="VPNClass" Relationship="Self.FK_VPNs_VPNClasses" FromRole="VPNs" ToRole="VPNClasses" />
+        </EntityType>
+        <Association Name="FK_AccountContact_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="AccountContact" Type="Self.AccountContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountContact">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountContact_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="AccountContact" Type="Self.AccountContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountContact">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_AccountTypes">
+          <End Role="AccountTypes" Type="Self.AccountType" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="AccountTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryMade_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="DeliveryMade" Type="Self.DeliveryMade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryMade">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailAddresses_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="EmailAddresses" Type="Self.EmailAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmailAddresses">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InternetDomains_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="InternetDomains" Type="Self.InternetDomain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InternetDomains">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IPAddress_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="IPAddress" Type="Self.IPAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IPAddress">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentReceived_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="PaymentReceived" Type="Self.PaymentReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PaymentReceived">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Services" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoftwareInstallation_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="SoftwareInstallation" Type="Self.SoftwareInstallation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SoftwareInstallation">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupportAgreement_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="SupportAgreement" Type="Self.SupportAgreement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportAgreement">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VPNs_Accounts">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="VPNs" Type="Self.VPN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VPNs">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AcquisitionEvents_DeliveryReceived">
+          <End Role="DeliveryReceived" Type="Self.DeliveryReceived" Multiplicity="0..1" />
+          <End Role="AcquisitionEvents" Type="Self.AcquisitionEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryReceived">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AcquisitionEvents">
+              <PropertyRef Name="DeliveryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AcquisitionEvents_Vendors">
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+          <End Role="AcquisitionEvents" Type="Self.AcquisitionEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AcquisitionEvents">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_AcquisitionEvents">
+          <End Role="AcquisitionEvents" Type="Self.AcquisitionEvent" Multiplicity="0..1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AcquisitionEvents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="AcquisitionEventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BankDeposit_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="BankDeposit" Type="Self.BankDeposit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankDeposit">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLOU_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="CLOU" Type="Self.CLOU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CLOU">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InternetDomains_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="InternetDomains" Type="Self.InternetDomain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InternetDomains">
+              <PropertyRef Name="AdministrativeContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOU_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="MOU" Type="Self.MOU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MOU">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QueryEvents_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="QueryEvents" Type="Self.QueryEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QueryEvents">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vendor_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorContacts_ContactInformation">
+          <End Role="ContactInformation" Type="Self.ContactInformation" Multiplicity="0..1" />
+          <End Role="VendorContacts" Type="Self.VendorContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorContacts">
+              <PropertyRef Name="ContactInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryMade_EmployeeDelivered">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="DeliveryMade" Type="Self.DeliveryMade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryMade">
+              <PropertyRef Name="EmployeeDeliveredID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryMade_EmployeeOrdered">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="DeliveryMade" Type="Self.DeliveryMade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryMade">
+              <PropertyRef Name="EmployeeOrderedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_DeliveryMade">
+          <End Role="DeliveryMade" Type="Self.DeliveryMade" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryMade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="DeliveryMadeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_DeliveryMade">
+          <End Role="DeliveryMade" Type="Self.DeliveryMade" Multiplicity="0..1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryMade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="DeliveryMadeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryReceived_EmployeeOrdered">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="DeliveryReceived" Type="Self.DeliveryReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryReceived">
+              <PropertyRef Name="EmployeeOrderedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryReceived_EmployeeReceiving">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="DeliveryReceived" Type="Self.DeliveryReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryReceived">
+              <PropertyRef Name="EmployeeReceivingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_EmployeeTypes">
+          <End Role="EmployeeTypes" Type="Self.EmployeeType" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="EmployeeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpenditureEvent_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="ExpenditureEvent" Type="Self.ExpenditureEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpenditureEvent">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentReceived_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="PaymentReceived" Type="Self.PaymentReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PaymentReceived">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Procedure_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Procedure" Type="Self.Procedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Procedure">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEvent_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="ProjectEvent" Type="Self.ProjectEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEvent">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoftwareInstallation_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="SoftwareInstallation" Type="Self.SoftwareInstallation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SoftwareInstallation">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupportEvent_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="SupportEvent" Type="Self.SupportEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportEvent">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Projects">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Ticket">
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="TicketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_ItemStatus">
+          <End Role="ItemStatus" Type="Self.ItemStatu" Multiplicity="0..1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="ItemStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_ItemTypes">
+          <End Role="ItemTypes" Type="Self.ItemType" Multiplicity="0..1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="ItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_Priorities">
+          <End Role="Priorities" Type="Self.Priority" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priorities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="PriorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupportEvent_Procedures">
+          <End Role="Procedure" Type="Self.Procedure" Multiplicity="0..1" />
+          <End Role="SupportEvent" Type="Self.SupportEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedure">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportEvent">
+              <PropertyRef Name="ProcedureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEvent_Projects">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="ProjectEvent" Type="Self.ProjectEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectEvent">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ProjectsTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectType" Multiplicity="0..1" />
+          <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VPNs_Protocols">
+          <End Role="Protocols" Type="Self.Protocol" Multiplicity="0..1" />
+          <End Role="VPNs" Type="Self.VPN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Protocols">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VPNs">
+              <PropertyRef Name="ProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QueryEvents_QueryStatus">
+          <End Role="QueryStatus" Type="Self.QueryStatu" Multiplicity="0..1" />
+          <End Role="QueryEvents" Type="Self.QueryEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QueryStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QueryEvents">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QueryEvents_QueryType">
+          <End Role="QueryType" Type="Self.QueryType" Multiplicity="0..1" />
+          <End Role="QueryEvents" Type="Self.QueryEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QueryType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QueryEvents">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_ServiceTypes">
+          <End Role="ServiceTypes" Type="Self.ServiceType" Multiplicity="0..1" />
+          <End Role="Services" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupportEvent_Ticket">
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="0..1" />
+          <End Role="SupportEvent" Type="Self.SupportEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportEvent">
+              <PropertyRef Name="TicketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_TicketStatus">
+          <End Role="TicketStatus" Type="Self.TicketStatu" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vendor_VendorStatus">
+          <End Role="VendorStatus" Type="Self.VendorStatu" Multiplicity="0..1" />
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VendorStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorContacts_Vendor">
+          <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+          <End Role="VendorContacts" Type="Self.VendorContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorContacts">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VPNs_VPNClasses">
+          <End Role="VPNClasses" Type="Self.VPNClass" Multiplicity="0..1" />
+          <End Role="VPNs" Type="Self.VPN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VPNClasses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VPNs">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WhiteWaveDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccountContacts" EntityType="Self.AccountContact" />
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="AccountTypes" EntityType="Self.AccountType" />
+          <EntitySet Name="AcquisitionEvents" EntityType="Self.AcquisitionEvent" />
+          <EntitySet Name="BankDeposits" EntityType="Self.BankDeposit" />
+          <EntitySet Name="CLOUs" EntityType="Self.CLOU" />
+          <EntitySet Name="ContactInformations" EntityType="Self.ContactInformation" />
+          <EntitySet Name="DeliveryMades" EntityType="Self.DeliveryMade" />
+          <EntitySet Name="DeliveryReceiveds" EntityType="Self.DeliveryReceived" />
+          <EntitySet Name="EmailAddresses" EntityType="Self.EmailAddress" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="EmployeeTypes" EntityType="Self.EmployeeType" />
+          <EntitySet Name="ExpenditureEvents" EntityType="Self.ExpenditureEvent" />
+          <EntitySet Name="InternetDomains" EntityType="Self.InternetDomain" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="IPAddresses" EntityType="Self.IPAddress" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="ItemStatus" EntityType="Self.ItemStatu" />
+          <EntitySet Name="ItemTypes" EntityType="Self.ItemType" />
+          <EntitySet Name="MOUs" EntityType="Self.MOU" />
+          <EntitySet Name="PaymentReceiveds" EntityType="Self.PaymentReceived" />
+          <EntitySet Name="Priorities" EntityType="Self.Priority" />
+          <EntitySet Name="Procedures" EntityType="Self.Procedure" />
+          <EntitySet Name="ProjectEvents" EntityType="Self.ProjectEvent" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="ProjectTypes" EntityType="Self.ProjectType" />
+          <EntitySet Name="Protocols" EntityType="Self.Protocol" />
+          <EntitySet Name="QueryEvents" EntityType="Self.QueryEvent" />
+          <EntitySet Name="QueryStatus" EntityType="Self.QueryStatu" />
+          <EntitySet Name="QueryTypes" EntityType="Self.QueryType" />
+          <EntitySet Name="Services" EntityType="Self.Service" />
+          <EntitySet Name="ServiceTypes" EntityType="Self.ServiceType" />
+          <EntitySet Name="SoftwareInstallations" EntityType="Self.SoftwareInstallation" />
+          <EntitySet Name="SupportAgreements" EntityType="Self.SupportAgreement" />
+          <EntitySet Name="SupportEvents" EntityType="Self.SupportEvent" />
+          <EntitySet Name="Tickets" EntityType="Self.Ticket" />
+          <EntitySet Name="TicketStatus" EntityType="Self.TicketStatu" />
+          <EntitySet Name="Vendors" EntityType="Self.Vendor" />
+          <EntitySet Name="VendorContacts" EntityType="Self.VendorContact" />
+          <EntitySet Name="VendorStatus" EntityType="Self.VendorStatu" />
+          <EntitySet Name="VPNClasses" EntityType="Self.VPNClass" />
+          <EntitySet Name="VPNs" EntityType="Self.VPN" />
+          <AssociationSet Name="FK_AccountContact_Accounts" Association="Self.FK_AccountContact_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="AccountContact" EntitySet="AccountContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountContact_ContactInformation" Association="Self.FK_AccountContact_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformations" />
+            <End Role="AccountContact" EntitySet="AccountContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_AccountTypes" Association="Self.FK_Accounts_AccountTypes">
+            <End Role="AccountTypes" EntitySet="AccountTypes" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_ContactInformation" Association="Self.FK_Accounts_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformations" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryMade_Accounts" Association="Self.FK_DeliveryMade_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="DeliveryMade" EntitySet="DeliveryMades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailAddresses_Accounts" Association="Self.FK_EmailAddresses_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="EmailAddresses" EntitySet="EmailAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InternetDomains_Accounts" Association="Self.FK_InternetDomains_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="InternetDomains" EntitySet="InternetDomains" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Accounts" Association="Self.FK_Invoices_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IPAddress_Accounts" Association="Self.FK_IPAddress_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="IPAddress" EntitySet="IPAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentReceived_Accounts" Association="Self.FK_PaymentReceived_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="PaymentReceived" EntitySet="PaymentReceiveds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Accounts" Association="Self.FK_Projects_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_Accounts" Association="Self.FK_Services_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoftwareInstallation_Accounts" Association="Self.FK_SoftwareInstallation_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="SoftwareInstallation" EntitySet="SoftwareInstallations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupportAgreement_Accounts" Association="Self.FK_SupportAgreement_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="SupportAgreement" EntitySet="SupportAgreements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_Accounts" Association="Self.FK_Ticket_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VPNs_Accounts" Association="Self.FK_VPNs_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="VPNs" EntitySet="VPNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AcquisitionEvents_DeliveryReceived" Association="Self.FK_AcquisitionEvents_DeliveryReceived">
+            <End Role="DeliveryReceived" EntitySet="DeliveryReceiveds" />
+            <End Role="AcquisitionEvents" EntitySet="AcquisitionEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AcquisitionEvents_Vendors" Association="Self.FK_AcquisitionEvents_Vendors">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="AcquisitionEvents" EntitySet="AcquisitionEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_AcquisitionEvents" Association="Self.FK_Items_AcquisitionEvents">
+            <End Role="AcquisitionEvents" EntitySet="AcquisitionEvents" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BankDeposit_Employees" Association="Self.FK_BankDeposit_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="BankDeposit" EntitySet="BankDeposits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLOU_Employees" Association="Self.FK_CLOU_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="CLOU" EntitySet="CLOUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_ContactInformation" Association="Self.FK_Employees_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformations" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InternetDomains_ContactInformation" Association="Self.FK_InternetDomains_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformations" />
+            <End Role="InternetDomains" EntitySet="InternetDomains" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOU_ContactInformation" Association="Self.FK_MOU_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformations" />
+            <End Role="MOU" EntitySet="MOUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QueryEvents_ContactInformation" Association="Self.FK_QueryEvents_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformations" />
+            <End Role="QueryEvents" EntitySet="QueryEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vendor_ContactInformation" Association="Self.FK_Vendor_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformations" />
+            <End Role="Vendor" EntitySet="Vendors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorContacts_ContactInformation" Association="Self.FK_VendorContacts_ContactInformation">
+            <End Role="ContactInformation" EntitySet="ContactInformations" />
+            <End Role="VendorContacts" EntitySet="VendorContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryMade_EmployeeDelivered" Association="Self.FK_DeliveryMade_EmployeeDelivered">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="DeliveryMade" EntitySet="DeliveryMades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryMade_EmployeeOrdered" Association="Self.FK_DeliveryMade_EmployeeOrdered">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="DeliveryMade" EntitySet="DeliveryMades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_DeliveryMade" Association="Self.FK_Invoices_DeliveryMade">
+            <End Role="DeliveryMade" EntitySet="DeliveryMades" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_DeliveryMade" Association="Self.FK_Items_DeliveryMade">
+            <End Role="DeliveryMade" EntitySet="DeliveryMades" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryReceived_EmployeeOrdered" Association="Self.FK_DeliveryReceived_EmployeeOrdered">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="DeliveryReceived" EntitySet="DeliveryReceiveds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryReceived_EmployeeReceiving" Association="Self.FK_DeliveryReceived_EmployeeReceiving">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="DeliveryReceived" EntitySet="DeliveryReceiveds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_EmployeeTypes" Association="Self.FK_Employees_EmployeeTypes">
+            <End Role="EmployeeTypes" EntitySet="EmployeeTypes" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpenditureEvent_Employees" Association="Self.FK_ExpenditureEvent_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ExpenditureEvent" EntitySet="ExpenditureEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentReceived_Employees" Association="Self.FK_PaymentReceived_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="PaymentReceived" EntitySet="PaymentReceiveds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Procedure_Employees" Association="Self.FK_Procedure_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Procedure" EntitySet="Procedures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEvent_Employees" Association="Self.FK_ProjectEvent_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ProjectEvent" EntitySet="ProjectEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoftwareInstallation_Employees" Association="Self.FK_SoftwareInstallation_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="SoftwareInstallation" EntitySet="SoftwareInstallations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupportEvent_Employees" Association="Self.FK_SupportEvent_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="SupportEvent" EntitySet="SupportEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_Employees" Association="Self.FK_Ticket_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Projects" Association="Self.FK_Invoices_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Ticket" Association="Self.FK_Invoices_Ticket">
+            <End Role="Ticket" EntitySet="Tickets" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_ItemStatus" Association="Self.FK_Items_ItemStatus">
+            <End Role="ItemStatus" EntitySet="ItemStatus" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_ItemTypes" Association="Self.FK_Items_ItemTypes">
+            <End Role="ItemTypes" EntitySet="ItemTypes" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_Priorities" Association="Self.FK_Ticket_Priorities">
+            <End Role="Priorities" EntitySet="Priorities" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupportEvent_Procedures" Association="Self.FK_SupportEvent_Procedures">
+            <End Role="Procedure" EntitySet="Procedures" />
+            <End Role="SupportEvent" EntitySet="SupportEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEvent_Projects" Association="Self.FK_ProjectEvent_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectEvent" EntitySet="ProjectEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ProjectsTypes" Association="Self.FK_Projects_ProjectsTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VPNs_Protocols" Association="Self.FK_VPNs_Protocols">
+            <End Role="Protocols" EntitySet="Protocols" />
+            <End Role="VPNs" EntitySet="VPNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QueryEvents_QueryStatus" Association="Self.FK_QueryEvents_QueryStatus">
+            <End Role="QueryStatus" EntitySet="QueryStatus" />
+            <End Role="QueryEvents" EntitySet="QueryEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QueryEvents_QueryType" Association="Self.FK_QueryEvents_QueryType">
+            <End Role="QueryType" EntitySet="QueryTypes" />
+            <End Role="QueryEvents" EntitySet="QueryEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_ServiceTypes" Association="Self.FK_Services_ServiceTypes">
+            <End Role="ServiceTypes" EntitySet="ServiceTypes" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupportEvent_Ticket" Association="Self.FK_SupportEvent_Ticket">
+            <End Role="Ticket" EntitySet="Tickets" />
+            <End Role="SupportEvent" EntitySet="SupportEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_TicketStatus" Association="Self.FK_Ticket_TicketStatus">
+            <End Role="TicketStatus" EntitySet="TicketStatus" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vendor_VendorStatus" Association="Self.FK_Vendor_VendorStatus">
+            <End Role="VendorStatus" EntitySet="VendorStatus" />
+            <End Role="Vendor" EntitySet="Vendors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorContacts_Vendor" Association="Self.FK_VendorContacts_Vendor">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="VendorContacts" EntitySet="VendorContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VPNs_VPNClasses" Association="Self.FK_VPNs_VPNClasses">
+            <End Role="VPNClasses" EntitySet="VPNClasses" />
+            <End Role="VPNs" EntitySet="VPNs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WhiteWaveDBModelStoreContainer" CdmEntityContainer="WhiteWaveDBEntities">
+          <EntitySetMapping Name="AccountContacts">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.AccountContact">
+              <MappingFragment StoreEntitySet="AccountContact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactInformationID" ColumnName="ContactInformationID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.Account">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactInformationID" ColumnName="ContactInformationID" />
+                <ScalarProperty Name="AccountTypeID" ColumnName="AccountTypeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountTypes">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.AccountType">
+              <MappingFragment StoreEntitySet="AccountTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AcquisitionEvents">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.AcquisitionEvent">
+              <MappingFragment StoreEntitySet="AcquisitionEvents">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="AmtPaid" ColumnName="AmtPaid" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Justification" ColumnName="Justification" />
+                <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BankDeposits">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.BankDeposit">
+              <MappingFragment StoreEntitySet="BankDeposit">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLOUs">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.CLOU">
+              <MappingFragment StoreEntitySet="CLOU">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactInformations">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.ContactInformation">
+              <MappingFragment StoreEntitySet="ContactInformation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Email1" ColumnName="Email1" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="Email3" ColumnName="Email3" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="City1" ColumnName="City1" />
+                <ScalarProperty Name="State1" ColumnName="State1" />
+                <ScalarProperty Name="Zip1" ColumnName="Zip1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City2" ColumnName="City2" />
+                <ScalarProperty Name="State2" ColumnName="State2" />
+                <ScalarProperty Name="Zip2" ColumnName="Zip2" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Phone3" ColumnName="Phone3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryMades">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.DeliveryMade">
+              <MappingFragment StoreEntitySet="DeliveryMade">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateOrdered" ColumnName="DateOrdered" />
+                <ScalarProperty Name="DateDelivered" ColumnName="DateDelivered" />
+                <ScalarProperty Name="EmployeeOrderedID" ColumnName="EmployeeOrderedID" />
+                <ScalarProperty Name="EmployeeDeliveredID" ColumnName="EmployeeDeliveredID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryReceiveds">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.DeliveryReceived">
+              <MappingFragment StoreEntitySet="DeliveryReceived">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateOrdered" ColumnName="DateOrdered" />
+                <ScalarProperty Name="EmployeeOrderedID" ColumnName="EmployeeOrderedID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+                <ScalarProperty Name="EmployeeReceivingID" ColumnName="EmployeeReceivingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailAddresses">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.EmailAddress">
+              <MappingFragment StoreEntitySet="EmailAddresses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmailAddress1" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="EmployeeTypeID" ColumnName="EmployeeTypeID" />
+                <ScalarProperty Name="ContactInformationID" ColumnName="ContactInformationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeTypes">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.EmployeeType">
+              <MappingFragment StoreEntitySet="EmployeeTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpenditureEvents">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.ExpenditureEvent">
+              <MappingFragment StoreEntitySet="ExpenditureEvent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Justification" ColumnName="Justification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InternetDomains">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.InternetDomain">
+              <MappingFragment StoreEntitySet="InternetDomains">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="Registrant" ColumnName="Registrant" />
+                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+                <ScalarProperty Name="RegistrarName" ColumnName="RegistrarName" />
+                <ScalarProperty Name="RegistrarHomepage" ColumnName="RegistrarHomepage" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AdministrativeContactName" ColumnName="AdministrativeContactName" />
+                <ScalarProperty Name="AdministrativeContactInformationID" ColumnName="AdministrativeContactInformationID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ExpiresOn" ColumnName="ExpiresOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="BilledItems" ColumnName="BilledItems" />
+                <ScalarProperty Name="DeliveryMadeID" ColumnName="DeliveryMadeID" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IPAddresses">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.IPAddress">
+              <MappingFragment StoreEntitySet="IPAddress">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="AcquisitionEventID" ColumnName="AcquisitionEventID" />
+                <ScalarProperty Name="ItemStatusID" ColumnName="ItemStatusID" />
+                <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+                <ScalarProperty Name="DeliveryMadeID" ColumnName="DeliveryMadeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemStatus">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.ItemStatu">
+              <MappingFragment StoreEntitySet="ItemStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemTypes">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.ItemType">
+              <MappingFragment StoreEntitySet="ItemTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ItemType1" ColumnName="ItemType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MOUs">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.MOU">
+              <MappingFragment StoreEntitySet="MOU">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ContactInformationID" ColumnName="ContactInformationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentReceiveds">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.PaymentReceived">
+              <MappingFragment StoreEntitySet="PaymentReceived">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Priorities">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.Priority">
+              <MappingFragment StoreEntitySet="Priorities">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Priority1" ColumnName="Priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Procedures">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.Procedure">
+              <MappingFragment StoreEntitySet="Procedure">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectEvents">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.ProjectEvent">
+              <MappingFragment StoreEntitySet="ProjectEvent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+                <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
+                <ScalarProperty Name="MaterialsUsed" ColumnName="MaterialsUsed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateComplete" ColumnName="DateComplete" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectTypes">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.ProjectType">
+              <MappingFragment StoreEntitySet="ProjectTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Protocols">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.Protocol">
+              <MappingFragment StoreEntitySet="Protocols">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Protocol1" ColumnName="Protocol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QueryEvents">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.QueryEvent">
+              <MappingFragment StoreEntitySet="QueryEvents">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactInformationID" ColumnName="ContactInformationID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QueryStatus">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.QueryStatu">
+              <MappingFragment StoreEntitySet="QueryStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QueryTypes">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.QueryType">
+              <MappingFragment StoreEntitySet="QueryType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.Service">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceTypes">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.ServiceType">
+              <MappingFragment StoreEntitySet="ServiceTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SoftwareInstallations">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.SoftwareInstallation">
+              <MappingFragment StoreEntitySet="SoftwareInstallation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="SoftwareName" ColumnName="SoftwareName" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="LicenseStart" ColumnName="LicenseStart" />
+                <ScalarProperty Name="LicenseEnd" ColumnName="LicenseEnd" />
+                <ScalarProperty Name="MachineInstalledOn" ColumnName="MachineInstalledOn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupportAgreements">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.SupportAgreement">
+              <MappingFragment StoreEntitySet="SupportAgreement">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupportEvents">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.SupportEvent">
+              <MappingFragment StoreEntitySet="SupportEvent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+                <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="ProcedureID" ColumnName="ProcedureID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.Ticket">
+              <MappingFragment StoreEntitySet="Ticket">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="DateOpened" ColumnName="DateOpened" />
+                <ScalarProperty Name="DateClosed" ColumnName="DateClosed" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketStatus">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.TicketStatu">
+              <MappingFragment StoreEntitySet="TicketStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.Vendor">
+              <MappingFragment StoreEntitySet="Vendor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactInformationID" ColumnName="ContactInformationID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorContacts">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.VendorContact">
+              <MappingFragment StoreEntitySet="VendorContacts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactInformationID" ColumnName="ContactInformationID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorStatus">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.VendorStatu">
+              <MappingFragment StoreEntitySet="VendorStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VPNClasses">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.VPNClass">
+              <MappingFragment StoreEntitySet="VPNClasses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VPNs">
+            <EntityTypeMapping TypeName="WhiteWaveDBModel.VPN">
+              <MappingFragment StoreEntitySet="VPNs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="VirtualIPRange" ColumnName="VirtualIPRange" />
+                <ScalarProperty Name="AllowedLANAccess" ColumnName="AllowedLANAccess" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NeededBy" ColumnName="NeededBy" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

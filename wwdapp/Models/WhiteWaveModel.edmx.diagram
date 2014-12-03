@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5093a24bfd5b404081c2a2ff21881635" Name="Diagram1" ZoomLevel="62">
+        <EntityTypeShape EntityType="WhiteWaveDBModel.AccountContact" Width="1.5" PointX="3" PointY="40.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.Account" Width="1.5" PointX="6" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.AccountType" Width="1.5" PointX="3.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.AcquisitionEvent" Width="1.5" PointX="8.25" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.BankDeposit" Width="1.5" PointX="5.25" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.CLOU" Width="1.5" PointX="5.25" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.ContactInformation" Width="1.5" PointX="0.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.DeliveryMade" Width="1.5" PointX="11.25" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.DeliveryReceived" Width="1.5" PointX="5.25" PointY="44.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.EmailAddress" Width="1.5" PointX="8.25" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.Employee" Width="1.5" PointX="3" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.EmployeeType" Width="1.5" PointX="0.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.ExpenditureEvent" Width="1.5" PointX="5.25" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.InternetDomain" Width="1.5" PointX="11.25" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.Invoice" Width="1.5" PointX="16.5" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.IPAddress" Width="1.5" PointX="8.25" PointY="48.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.Item" Width="1.5" PointX="16.5" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.ItemStatu" Width="1.5" PointX="14.25" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.ItemType" Width="1.5" PointX="14.25" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.MOU" Width="1.5" PointX="3" PointY="68.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.PaymentReceived" Width="1.5" PointX="8.25" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.Priority" Width="1.5" PointX="12" PointY="52" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.Procedure" Width="1.5" PointX="5.25" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.ProjectEvent" Width="1.5" PointX="13.5" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.Project" Width="1.5" PointX="8.25" PointY="45.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.ProjectType" Width="1.5" PointX="6" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.Protocol" Width="1.5" PointX="9" PointY="52.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.QueryEvent" Width="1.5" PointX="3" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.QueryStatu" Width="1.5" PointX="0.75" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.QueryType" Width="1.5" PointX="0.75" PointY="48" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.Service" Width="1.5" PointX="14.25" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.ServiceType" Width="1.5" PointX="12" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.SoftwareInstallation" Width="1.5" PointX="14.25" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.SupportAgreement" Width="1.5" PointX="8.25" PointY="66.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.SupportEvent" Width="1.5" PointX="16.5" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.Ticket" Width="1.5" PointX="14.25" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.TicketStatu" Width="1.5" PointX="12" PointY="54.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.Vendor" Width="1.5" PointX="6" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.VendorContact" Width="1.5" PointX="11.25" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.VendorStatu" Width="1.5" PointX="3.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.VPNClass" Width="1.5" PointX="9" PointY="55" IsExpanded="true" />
+        <EntityTypeShape EntityType="WhiteWaveDBModel.VPN" Width="1.5" PointX="11.25" PointY="46.875" IsExpanded="true" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_AccountContact_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_AccountContact_ContactInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Accounts_AccountTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Accounts_ContactInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_DeliveryMade_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_EmailAddresses_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_InternetDomains_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Invoices_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_IPAddress_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_PaymentReceived_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Projects_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Services_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_SoftwareInstallation_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_SupportAgreement_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Ticket_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_VPNs_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_AcquisitionEvents_DeliveryReceived" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_AcquisitionEvents_Vendors" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Items_AcquisitionEvents" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_BankDeposit_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_CLOU_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Employees_ContactInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_InternetDomains_ContactInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_MOU_ContactInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_QueryEvents_ContactInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Vendor_ContactInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_VendorContacts_ContactInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_DeliveryMade_EmployeeDelivered" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_DeliveryMade_EmployeeOrdered" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Invoices_DeliveryMade" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Items_DeliveryMade" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_DeliveryReceived_EmployeeOrdered" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_DeliveryReceived_EmployeeReceiving" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Employees_EmployeeTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_ExpenditureEvent_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_PaymentReceived_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Procedure_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_ProjectEvent_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_SoftwareInstallation_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_SupportEvent_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Ticket_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Invoices_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Invoices_Ticket" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Items_ItemStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Items_ItemTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Ticket_Priorities" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_SupportEvent_Procedures" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_ProjectEvent_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Projects_ProjectsTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_VPNs_Protocols" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_QueryEvents_QueryStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_QueryEvents_QueryType" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Services_ServiceTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_SupportEvent_Ticket" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Ticket_TicketStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_Vendor_VendorStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_VendorContacts_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="WhiteWaveDBModel.FK_VPNs_VPNClasses" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

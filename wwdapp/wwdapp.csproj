@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -164,9 +166,150 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountContact.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountType.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AcquisitionEvent.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BankDeposit.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLOU.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactInformation.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeliveryMade.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeliveryReceived.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmailAddress.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeType.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExpenditureEvent.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InternetDomain.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Invoice.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IPAddress.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Item.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemStatu.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemType.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MOU.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaymentReceived.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Priority.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Procedure.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Project.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProjectEvent.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProjectType.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Protocol.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QueryEvent.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QueryStatu.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QueryType.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ServiceType.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SoftwareInstallation.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SupportAgreement.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SupportEvent.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ticket.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TicketStatu.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vendor.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VendorContact.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VendorStatu.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VPN.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VPNClass.cs">
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WhiteWaveModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WhiteWaveModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WhiteWaveModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WhiteWaveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WhiteWaveModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WhiteWaveModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -183,6 +326,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\WhiteWaveModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WhiteWaveModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\WhiteWaveModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WhiteWaveModel.edmx</DependentUpon>
+      <LastGenOutput>WhiteWaveModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\WhiteWaveModel.edmx.diagram">
+      <DependentUpon>WhiteWaveModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\WhiteWaveModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WhiteWaveModel.edmx</DependentUpon>
+      <LastGenOutput>WhiteWaveModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -231,7 +391,9 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
