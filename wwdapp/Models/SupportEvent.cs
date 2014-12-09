@@ -22,6 +22,7 @@ namespace wwdapp.Models
         public Nullable<System.DateTime> TimeEnd { get; set; }
         public Nullable<int> EmployeeID { get; set; }
         public Nullable<int> ProcedureID { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         public Nullable<int> TicketID { get; set; }
     

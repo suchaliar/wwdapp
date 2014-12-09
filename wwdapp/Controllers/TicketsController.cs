@@ -18,7 +18,7 @@ namespace wwdapp.Controllers
         public ActionResult Index()
         {
             var tickets = db.Tickets.Include(t => t.Account).Include(t => t.Employee).Include(t => t.Priority).Include(t => t.TicketStatu);
-            return View(tickets.OrderBy(t => t.PriorityID).ToList());
+            return View(tickets.OrderBy(t => t.PriorityID).ThenBy(t => t.DateOpened).ToList());
         }
 
         // GET: Tickets/Details/5
