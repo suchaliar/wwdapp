@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -15,10 +16,20 @@ namespace wwdapp.Controllers
         private WhiteWaveDBEntities db = new WhiteWaveDBEntities();
 
         // GET: SupportEvents
-        public ActionResult Index()
+        public ActionResult Index(int? PassTicketID)
         {
-            var supportEvents = db.SupportEvents.Include(s => s.Employee).Include(s => s.Procedure).Include(s => s.Ticket);
-            return View(supportEvents.ToList());
+            if (PassTicketID == null)
+            {
+                var supportEvents = db.SupportEvents.Include(s => s.Employee).Include(s => s.Procedure).Include(s => s.Ticket);
+                return View(supportEvents.ToList());
+            }
+            else
+            {
+                var query = from s in db.SupportEvents
+                                        where s.TicketID == PassTicketID
+                                        select s;
+                            return View(query.ToList());
+            }
         }
 
         // GET: SupportEvents/Details/5
@@ -41,7 +52,7 @@ namespace wwdapp.Controllers
         {
             ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName");
             ViewBag.ProcedureID = new SelectList(db.Procedures, "Id", "Name");
-            ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Description");
+            ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Id");
             return View();
         }
 
@@ -61,7 +72,7 @@ namespace wwdapp.Controllers
 
             ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName", supportEvent.EmployeeID);
             ViewBag.ProcedureID = new SelectList(db.Procedures, "Id", "Name", supportEvent.ProcedureID);
-            ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Description", supportEvent.TicketID);
+            ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Id", supportEvent.TicketID);
             return View(supportEvent);
         }
 
@@ -79,7 +90,7 @@ namespace wwdapp.Controllers
             }
             ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName", supportEvent.EmployeeID);
             ViewBag.ProcedureID = new SelectList(db.Procedures, "Id", "Name", supportEvent.ProcedureID);
-            ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Description", supportEvent.TicketID);
+            ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Id", supportEvent.TicketID);
             return View(supportEvent);
         }
 
@@ -98,7 +109,7 @@ namespace wwdapp.Controllers
             }
             ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName", supportEvent.EmployeeID);
             ViewBag.ProcedureID = new SelectList(db.Procedures, "Id", "Name", supportEvent.ProcedureID);
-            ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Description", supportEvent.TicketID);
+            ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Id", supportEvent.TicketID);
             return View(supportEvent);
         }
 
