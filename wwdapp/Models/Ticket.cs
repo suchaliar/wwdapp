@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Ticket
     {
@@ -24,8 +25,11 @@ namespace wwdapp.Models
         public Nullable<int> AccountID { get; set; }
         public Nullable<int> EmployeeID { get; set; }
         public Nullable<int> StatusID { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> DateOpened { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> DateClosed { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         public Nullable<int> PriorityID { get; set; }
     
