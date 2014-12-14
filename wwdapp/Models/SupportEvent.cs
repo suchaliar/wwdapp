@@ -11,14 +11,18 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class SupportEvent
     {
         public int Id { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> TimeStart { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> TimeEnd { get; set; }
         public Nullable<int> EmployeeID { get; set; }
         public Nullable<int> ProcedureID { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         public Nullable<int> TicketID { get; set; }
     

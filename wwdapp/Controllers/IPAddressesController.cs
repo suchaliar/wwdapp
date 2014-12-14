@@ -28,7 +28,7 @@ namespace wwdapp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            IPAddress iPAddress = db.IPAddresses.Find(id);
+            wwdapp.Models.IPAddress iPAddress = db.IPAddresses.Find(id);
             if (iPAddress == null)
             {
                 return HttpNotFound();
@@ -48,7 +48,7 @@ namespace wwdapp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,IP,Name,Purpose,Description,AccountID")] IPAddress iPAddress)
+        public ActionResult Create([Bind(Include = "Id,IP,Name,Purpose,Description,AccountID")] wwdapp.Models.IPAddress iPAddress)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace wwdapp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            IPAddress iPAddress = db.IPAddresses.Find(id);
+            wwdapp.Models.IPAddress iPAddress = db.IPAddresses.Find(id);
             if (iPAddress == null)
             {
                 return HttpNotFound();
@@ -82,7 +82,7 @@ namespace wwdapp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,IP,Name,Purpose,Description,AccountID")] IPAddress iPAddress)
+        public ActionResult Edit([Bind(Include = "Id,IP,Name,Purpose,Description,AccountID")] wwdapp.Models.IPAddress iPAddress)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace wwdapp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            IPAddress iPAddress = db.IPAddresses.Find(id);
+            wwdapp.Models.IPAddress iPAddress = db.IPAddresses.Find(id);
             if (iPAddress == null)
             {
                 return HttpNotFound();
@@ -114,7 +114,7 @@ namespace wwdapp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            IPAddress iPAddress = db.IPAddresses.Find(id);
+            wwdapp.Models.IPAddress iPAddress = db.IPAddresses.Find(id);
             db.IPAddresses.Remove(iPAddress);
             db.SaveChanges();
             return RedirectToAction("Index");
