@@ -16,9 +16,9 @@ namespace wwdapp.Models
     public partial class SupportEvent
     {
         public int Id { get; set; }
-        [DataType(DataType.Date)]
+        [DataType(DataType.Time)]
         public Nullable<System.DateTime> TimeStart { get; set; }
-        [DataType(DataType.Date)]
+        [DataType(DataType.Time)]
         public Nullable<System.DateTime> TimeEnd { get; set; }
         public Nullable<int> EmployeeID { get; set; }
         public Nullable<int> ProcedureID { get; set; }
