@@ -13,13 +13,13 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Tickets</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Create, View and Edit Tickets and Support Events.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Tickets")">Open Tickets &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Create", "Tickets")">Create a Ticket &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("ClosedIndex", "Tickets")">Closed Tickets &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>Get more libraries</h2>
