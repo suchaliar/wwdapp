@@ -1,0 +1,75 @@
+﻿@model wwdapp.Models.Ticket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOpened)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOpened)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateClosed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateClosed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Name)
+        </dd>
+
+        <dt>
+            @Html.Label("Employee")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FirstName)
+            @Html.DisplayFor(model => model.Employee.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority.Priority1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priority.Priority1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketStatu.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketStatu.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("View Support Events", "Index", "SupportEvents", new { PassTicketID = Model.Id }, null) |
+    @Html.ActionLink("Back to List", "ClosedIndex")
+</p>
