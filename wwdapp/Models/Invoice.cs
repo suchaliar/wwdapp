@@ -11,17 +11,21 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Invoice
     {
         public int Id { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> AccountID { get; set; }
         public Nullable<int> Description { get; set; }
         public Nullable<int> TicketID { get; set; }
         public Nullable<int> ProjectID { get; set; }
+        [Display(Name = "Billed Items")]
         public string BilledItems { get; set; }
         public Nullable<int> DeliveryMadeID { get; set; }
+        [DataType(DataType.Currency)]
         public Nullable<decimal> Total { get; set; }
     
         public virtual Account Account { get; set; }

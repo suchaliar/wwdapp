@@ -11,10 +11,12 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class EmailAddress
     {
         public int Id { get; set; }
+        [Display(Name = "Email Address")]
         public string EmailAddress1 { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

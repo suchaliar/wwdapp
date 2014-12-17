@@ -45,6 +45,7 @@ namespace wwdapp.Models
         public Nullable<System.DateTime> DOB { get; set; }
         public string SSN { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name = "Hire Date")]
         public Nullable<System.DateTime> HireDate { get; set; }
         public Nullable<int> EmployeeTypeID { get; set; }
         public Nullable<int> ContactInformationID { get; set; }

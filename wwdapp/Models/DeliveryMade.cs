@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class DeliveryMade
     {
@@ -21,7 +22,9 @@ namespace wwdapp.Models
         }
     
         public int Id { get; set; }
+        [Display(Name = "Date Ordered")]
         public Nullable<System.DateTime> DateOrdered { get; set; }
+        [Display(Name = "Date Delivered")]
         public Nullable<System.DateTime> DateDelivered { get; set; }
         public Nullable<int> EmployeeOrderedID { get; set; }
         public Nullable<int> EmployeeDeliveredID { get; set; }

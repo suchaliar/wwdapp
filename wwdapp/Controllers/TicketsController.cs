@@ -43,6 +43,21 @@ namespace wwdapp.Controllers
             return View(ticket);
         }
 
+        // Tickets/ClosedDetails/5
+        public ActionResult ClosedDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Ticket ticket = db.Tickets.Find(id);
+            if (ticket == null)
+            {
+                return HttpNotFound();
+            }
+            return View(ticket);
+        }
+
         // GET: Tickets/Create
         public ActionResult Create()
         {

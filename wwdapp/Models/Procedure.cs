@@ -26,6 +26,8 @@ namespace wwdapp.Models
         public string Description { get; set; }
         public Nullable<int> AuthorID { get; set; }
         public string Text { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Date Modified")]
         public Nullable<System.DateTime> Date { get; set; }
     
         public virtual Employee Employee { get; set; }
