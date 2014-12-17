@@ -46,7 +46,7 @@ namespace wwdapp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Phone1,Phone2,Email1,Email2,Email3,Address1,City1,State1,Zip1,Address2,City2,State2,Zip2,Description,Phone3")] ContactInformation contactInformation)
+        public ActionResult Create([Bind(Include = "Id,Phone1,Phone2,Phone3,Email1,Email2,Email3,Address1,City1,State1,Zip1,Address2,City2,State2,Zip2,Description")] ContactInformation contactInformation)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace wwdapp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Phone1,Phone2,Email1,Email2,Email3,Address1,City1,State1,Zip1,Address2,City2,State2,Zip2,Description,Phone3")] ContactInformation contactInformation)
+        public ActionResult Edit([Bind(Include = "Id,Phone1,Phone2,Phone3,Email1,Email2,Email3,Address1,City1,State1,Zip1,Address2,City2,State2,Zip2,Description")] ContactInformation contactInformation)
         {
             if (ModelState.IsValid)
             {

@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<wwdapp.Models.Ticket>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Closed Tickets";
 }
 
-<h2>Ticket Index</h2>
+<h2>Closed Ticket Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create") | @Html.ActionLink("View Closed Tickets", "ClosedIndex")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -59,9 +57,7 @@
             @Html.DisplayFor(modelItem => item.TicketStatu.Status)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Details", "Details", new { id = item.Id })
         </td>
     </tr>
 }

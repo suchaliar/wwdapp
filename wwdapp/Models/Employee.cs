@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Employee
     {
@@ -34,8 +35,10 @@ namespace wwdapp.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> DOB { get; set; }
         public string SSN { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> HireDate { get; set; }
         public Nullable<int> EmployeeTypeID { get; set; }
         public Nullable<int> ContactInformationID { get; set; }
