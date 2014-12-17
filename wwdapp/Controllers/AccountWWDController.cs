@@ -40,7 +40,7 @@ namespace wwdapp.Controllers
         public ActionResult Create()
         {
             ViewBag.AccountTypeID = new SelectList(db.AccountTypes, "Id", "Type");
-            ViewBag.ContactInformationID = new SelectList(db.ContactInformations, "Id", "Phone1");
+            //ViewBag.ContactInformationID = new SelectList(db.ContactInformations, "Id", "Phone1");
             return View();
         }
 
@@ -49,11 +49,14 @@ namespace wwdapp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,ContactInformationID,AccountTypeID,Description")] Account account)
+        public ActionResult Create([Bind(Include = "Id,Name,ContactInformationID,AccountTypeID,Description")] Account account,
+            [Bind(Include = "Id,Phone1,Phone2,Phone3,Email1,Email2,Email3,Address1,City1,State1,Zip1,Address2,City2,State2,Zip2,Description")] ContactInformation contactInformation)
         {
+            account.ContactInformationID = contactInformation.Id;
             if (ModelState.IsValid)
             {
                 db.Accounts.Add(account);
+                db.ContactInformations.Add(contactInformation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
