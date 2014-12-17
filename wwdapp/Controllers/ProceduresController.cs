@@ -39,7 +39,7 @@ namespace wwdapp.Controllers
         // GET: Procedures/Create
         public ActionResult Create()
         {
-            ViewBag.AuthorID = new SelectList(db.Employees, "Id", "FirstName");
+            ViewBag.AuthorID = new SelectList(db.Employees, "Id", "NameFull");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace wwdapp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AuthorID = new SelectList(db.Employees, "Id", "FirstName", procedure.AuthorID);
+            ViewBag.AuthorID = new SelectList(db.Employees, "Id", "NameFull", procedure.AuthorID);
             return View(procedure);
         }
 
@@ -73,7 +73,7 @@ namespace wwdapp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AuthorID = new SelectList(db.Employees, "Id", "FirstName", procedure.AuthorID);
+            ViewBag.AuthorID = new SelectList(db.Employees, "Id", "NameFull", procedure.AuthorID);
             return View(procedure);
         }
 
@@ -90,7 +90,7 @@ namespace wwdapp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AuthorID = new SelectList(db.Employees, "Id", "FirstName", procedure.AuthorID);
+            ViewBag.AuthorID = new SelectList(db.Employees, "Id", "NameFull", procedure.AuthorID);
             return View(procedure);
         }
 

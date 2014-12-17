@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class AcquisitionEvent
     {
@@ -22,6 +23,8 @@ namespace wwdapp.Models
         public int Id { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> VendorID { get; set; }
+        [Display(Name = "Amount Paid")]
+        [DataType(DataType.Currency)]
         public Nullable<decimal> AmtPaid { get; set; }
         public string Description { get; set; }
         public string Justification { get; set; }

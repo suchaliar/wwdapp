@@ -6,9 +6,9 @@
 
 <h2>Support Event Index</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Employee.FirstName)
+            @Html.Label("Employee")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Procedure.Name)
@@ -45,6 +45,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Employee.FirstName)
+            @Html.DisplayFor(modelItem => item.Employee.LastName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Procedure.Name)
@@ -61,3 +62,7 @@
 }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to Ticket Index", "Index", "Tickets")
+</div>

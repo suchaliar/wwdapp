@@ -17,8 +17,10 @@ namespace wwdapp.Models
     {
         public int Id { get; set; }
         [DataType(DataType.DateTime)]
+        [Display(Name = "Time Start")]
         public Nullable<System.DateTime> TimeStart { get; set; }
         [DataType(DataType.DateTime)]
+        [Display(Name = "Time End")]
         public Nullable<System.DateTime> TimeEnd { get; set; }
         public Nullable<int> EmployeeID { get; set; }
         public Nullable<int> ProcedureID { get; set; }

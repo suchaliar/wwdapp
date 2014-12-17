@@ -29,25 +29,39 @@ namespace wwdapp.Models
     
         public int Id { get; set; }
         [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Phone 1")]
         public string Phone1 { get; set; }
         [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Phone 2")]
         public string Phone2 { get; set; }
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email 1")]
         public string Email1 { get; set; }
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email 2")]
         public string Email2 { get; set; }
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email 3")]
         public string Email3 { get; set; }
+        [Display(Name = "Address 1")]
         public string Address1 { get; set; }
+        [Display(Name = "City 1")]
         public string City1 { get; set; }
+        [Display(Name = "State 1")]
         public string State1 { get; set; }
+        [Display(Name = "Zip 1")]
         public string Zip1 { get; set; }
+        [Display(Name = "Address 2")]
         public string Address2 { get; set; }
+        [Display(Name = "City 2")]
         public string City2 { get; set; }
+        [Display(Name = "State 2")]
         public string State2 { get; set; }
+        [Display(Name = "Zip 2")]
         public string Zip2 { get; set; }
         public string Description { get; set; }
         [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Phone 3")]
         public string Phone3 { get; set; }
     
         public virtual ICollection<AccountContact> AccountContacts { get; set; }

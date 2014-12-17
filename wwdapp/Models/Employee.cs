@@ -15,6 +15,10 @@ namespace wwdapp.Models
     
     public partial class Employee
     {
+        public string NameFull
+        {
+            get { return FirstName + " " + LastName; }
+        }
         public Employee()
         {
             this.BankDeposits = new HashSet<BankDeposit>();
@@ -33,12 +37,15 @@ namespace wwdapp.Models
         }
     
         public int Id { get; set; }
+        [Display(Name = "First")]
         public string FirstName { get; set; }
+        [Display(Name = "Last")]
         public string LastName { get; set; }
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> DOB { get; set; }
         public string SSN { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name = "Hire Date")]
         public Nullable<System.DateTime> HireDate { get; set; }
         public Nullable<int> EmployeeTypeID { get; set; }
         public Nullable<int> ContactInformationID { get; set; }
