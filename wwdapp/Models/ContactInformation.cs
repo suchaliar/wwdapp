@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class ContactInformation
     {
@@ -27,10 +28,15 @@ namespace wwdapp.Models
         }
     
         public int Id { get; set; }
+        [DataType(DataType.PhoneNumber)]
         public string Phone1 { get; set; }
+        [DataType(DataType.PhoneNumber)]
         public string Phone2 { get; set; }
+        [DataType(DataType.EmailAddress)]
         public string Email1 { get; set; }
+        [DataType(DataType.EmailAddress)]
         public string Email2 { get; set; }
+        [DataType(DataType.EmailAddress)]
         public string Email3 { get; set; }
         public string Address1 { get; set; }
         public string City1 { get; set; }
@@ -41,6 +47,7 @@ namespace wwdapp.Models
         public string State2 { get; set; }
         public string Zip2 { get; set; }
         public string Description { get; set; }
+        [DataType(DataType.PhoneNumber)]
         public string Phone3 { get; set; }
     
         public virtual ICollection<AccountContact> AccountContacts { get; set; }
