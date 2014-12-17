@@ -50,7 +50,7 @@ namespace wwdapp.Controllers
         // GET: SupportEvents/Create
         public ActionResult Create()
         {
-            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName");
+            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "NameFull");
             ViewBag.ProcedureID = new SelectList(db.Procedures, "Id", "Name");
             ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Id");
             return View();
@@ -70,9 +70,10 @@ namespace wwdapp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName", supportEvent.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "NameFull", supportEvent.EmployeeID);
             ViewBag.ProcedureID = new SelectList(db.Procedures, "Id", "Name", supportEvent.ProcedureID);
             ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Id", supportEvent.TicketID);
+            ViewBag.ticket = supportEvent.TicketID;
             return View(supportEvent);
         }
 
@@ -88,7 +89,7 @@ namespace wwdapp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName", supportEvent.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "NameFull", supportEvent.EmployeeID);
             ViewBag.ProcedureID = new SelectList(db.Procedures, "Id", "Name", supportEvent.ProcedureID);
             ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Id", supportEvent.TicketID);
             return View(supportEvent);
@@ -107,7 +108,7 @@ namespace wwdapp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName", supportEvent.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "NameFull", supportEvent.EmployeeID);
             ViewBag.ProcedureID = new SelectList(db.Procedures, "Id", "Name", supportEvent.ProcedureID);
             ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Id", supportEvent.TicketID);
             return View(supportEvent);

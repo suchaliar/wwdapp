@@ -47,7 +47,7 @@ namespace wwdapp.Controllers
         public ActionResult Create()
         {
             ViewBag.AccountID = new SelectList(db.Accounts, "Id", "Name");
-            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName");
+            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "NameFull");
             ViewBag.PriorityID = new SelectList(db.Priorities, "Id", "Priority1");
             ViewBag.StatusID = new SelectList(db.TicketStatus, "Id", "Status");
             return View();
@@ -68,7 +68,7 @@ namespace wwdapp.Controllers
             }
 
             ViewBag.AccountID = new SelectList(db.Accounts, "Id", "Name", ticket.AccountID);
-            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName", ticket.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "NameFull", ticket.EmployeeID);
             ViewBag.PriorityID = new SelectList(db.Priorities, "Id", "Priority1", ticket.PriorityID);
             ViewBag.StatusID = new SelectList(db.TicketStatus, "Id", "Status", ticket.StatusID);
             return View(ticket);
@@ -87,7 +87,7 @@ namespace wwdapp.Controllers
                 return HttpNotFound();
             }
             ViewBag.AccountID = new SelectList(db.Accounts, "Id", "Name", ticket.AccountID);
-            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName", ticket.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "NameFull", ticket.EmployeeID);
             ViewBag.PriorityID = new SelectList(db.Priorities, "Id", "Priority1", ticket.PriorityID);
             ViewBag.StatusID = new SelectList(db.TicketStatus, "Id", "Status", ticket.StatusID);
             return View(ticket);
@@ -107,7 +107,7 @@ namespace wwdapp.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.AccountID = new SelectList(db.Accounts, "Id", "Name", ticket.AccountID);
-            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "FirstName", ticket.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "NameFull", ticket.EmployeeID);
             ViewBag.PriorityID = new SelectList(db.Priorities, "Id", "Priority1", ticket.PriorityID);
             ViewBag.StatusID = new SelectList(db.TicketStatus, "Id", "Status", ticket.StatusID);
             return View(ticket);

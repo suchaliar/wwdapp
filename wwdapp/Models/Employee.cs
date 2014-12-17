@@ -15,6 +15,10 @@ namespace wwdapp.Models
     
     public partial class Employee
     {
+        public string NameFull
+        {
+            get { return FirstName + " " + LastName; }
+        }
         public Employee()
         {
             this.BankDeposits = new HashSet<BankDeposit>();

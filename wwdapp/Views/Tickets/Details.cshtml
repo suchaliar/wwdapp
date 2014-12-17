@@ -43,11 +43,12 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Employee.FirstName)
+            @Html.Label("Employee")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Employee.FirstName)
+            @Html.DisplayFor(model => model.Employee.LastName)
         </dd>
 
         <dt>
