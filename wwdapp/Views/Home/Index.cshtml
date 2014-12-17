@@ -27,10 +27,70 @@
         <p>Create, View and Edit customer Account information.</p>
         <p><a class="btn btn-default" href="@Url.Action("Index", "AccountWWD")">View Accounts &raquo;</a></p>
         <p><a class="btn btn-default" href="@Url.Action("Create", "AccountWWD")">Create an Account &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "SupportAgreements")">Support Agreements &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "QueryEvents")">Query Events &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Vendors")">Vendors &raquo;</a></p>
+
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Financials</h2>
+        <p>Track Bank Deposits, Expenditures, and more.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "BankDeposits")">Bank Deposits &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "ExpenditureEvents")">Expenditure Events &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Invoices")">Invoices &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "PaymentReceiveds")">Payments Received &raquo;</a></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Item Tracking</h2>
+        <p>
+            Track the recieving and transfer of items.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "AcquisitionEvents")">Acquisition Events &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "DeliveryMades")">Deliveries Made &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "DeliveryReceiveds")">Deliveries Received &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Items")">Items &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Manage People</h2>
+        <p>Manage Contact, Customer, and Employee information.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "AccountContacts")">Account Contacts &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "VendorContacts")">Vendor Contacts &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Employees")">Employees &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "CLOUs")">CLOUs &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Projects & Services</h2>
+        <p>Create, Update, and View Projects and Services.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Projects")">Projects &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Create", "Projects")">Create a Project &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Services")">Services &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "MOUs")">MOUs &raquo;</a></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Other & Lookup Values</h2>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "AccountTypes")">Account Types &raquo;</a></p>
+        <p class="col-md-4"><a class=" btn btn-default" href="@Url.Action("Index", "EmailAddresses")">Email Addresses &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "EmployeeTypes")">Employee Types &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "InternetDomains")">Internet Domains &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "IPAddresses")">IP Addresses &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "ItemStatus")">Item Status &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "ItemTypes")">Item Types &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "Priorities")">Priorities &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "ProjectTypes")">Project Types &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "Protocols")">Protocols &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "QueryStatus")">Query Status &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "QueryTypes")">Query Types &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "ServiceTypes")">Service Types &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "SoftwareInstallations")">Software Installations &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "TicketStatus")">Ticket Status &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "VendorStatus")">Vendor Status &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "VPNClasses")">VPN Classes &raquo;</a></p>
+        <p class="col-md-4"><a class="btn btn-default" href="@Url.Action("Index", "VPNs")">VPNs &raquo;</a></p>
     </div>
 </div>
