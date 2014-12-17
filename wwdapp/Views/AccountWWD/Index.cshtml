@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Accounts Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -21,7 +21,10 @@
             @Html.DisplayNameFor(model => model.AccountType.Type)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactInformation.Phone1)
+            @Html.Label("Phone #")
+        </th>
+        <th>
+            @Html.Label("Email")
         </th>
         <th></th>
     </tr>
@@ -39,6 +42,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ContactInformation.Phone1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactInformation.Email1)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

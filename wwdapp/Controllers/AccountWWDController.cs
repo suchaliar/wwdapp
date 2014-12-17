@@ -74,12 +74,13 @@ namespace wwdapp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Account account = db.Accounts.Find(id);
+            ContactInformation contactInformation = db.ContactInformations.Find(account.ContactInformationID);
             if (account == null)
             {
                 return HttpNotFound();
             }
             ViewBag.AccountTypeID = new SelectList(db.AccountTypes, "Id", "Type", account.AccountTypeID);
-            ViewBag.ContactInformationID = new SelectList(db.ContactInformations, "Id", "Phone1", account.ContactInformationID);
+            //ViewBag.ContactInformationID = new SelectList(db.ContactInformations, "Id", "Phone1", account.ContactInformationID);
             return View(account);
         }
 
@@ -88,11 +89,14 @@ namespace wwdapp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,ContactInformationID,AccountTypeID,Description")] Account account)
+        public ActionResult Edit([Bind(Include = "Id,Name,ContactInformationID,AccountTypeID,Description")] Account account,
+            [Bind(Include = "Id,Phone1,Phone2,Phone3,Email1,Email2,Email3,Address1,City1,State1,Zip1,Address2,City2,State2,Zip2,Description")] ContactInformation contactInformation)
         {
+            account.ContactInformationID = contactInformation.Id;
             if (ModelState.IsValid)
             {
                 db.Entry(account).State = EntityState.Modified;
+                db.Entry(contactInformation).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
