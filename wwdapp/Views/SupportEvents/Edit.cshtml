@@ -74,7 +74,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("View Support Events for This Ticket", "Index", "SupportEvents", new { PassTicketID = ViewContext.RouteData.Values["id"] }, null)
 </div>
 
 @section Scripts {
