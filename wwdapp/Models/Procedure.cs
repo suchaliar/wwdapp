@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Procedure
     {
@@ -20,6 +21,7 @@ namespace wwdapp.Models
         }
     
         public int Id { get; set; }
+        [Display(Name = "Procedure")]
         public string Name { get; set; }
         public string Description { get; set; }
         public Nullable<int> AuthorID { get; set; }

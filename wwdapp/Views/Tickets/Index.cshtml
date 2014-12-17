@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Account.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Employee.FirstName)
+            @Html.Label("Opened By")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Priority.Priority1)
@@ -51,6 +51,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Employee.FirstName)
+            @Html.DisplayFor(modelItem => item.Employee.LastName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Priority.Priority1)
