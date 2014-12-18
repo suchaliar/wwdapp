@@ -23,8 +23,10 @@ namespace wwdapp.Models
     
         public int Id { get; set; }
         [Display(Name = "Date Ordered")]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> DateOrdered { get; set; }
         [Display(Name = "Date Delivered")]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> DateDelivered { get; set; }
         public Nullable<int> EmployeeOrderedID { get; set; }
         public Nullable<int> EmployeeDeliveredID { get; set; }

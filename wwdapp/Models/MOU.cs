@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class MOU
     {
@@ -18,6 +19,7 @@ namespace wwdapp.Models
         public string Text { get; set; }
         public string Description { get; set; }
         public string Name { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> ContactInformationID { get; set; }
     

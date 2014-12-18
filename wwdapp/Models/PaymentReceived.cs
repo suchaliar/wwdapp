@@ -11,12 +11,15 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class PaymentReceived
     {
         public int Id { get; set; }
         public Nullable<int> AccountID { get; set; }
+        [DataType(DataType.Currency)]
         public Nullable<decimal> Amount { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> Date { get; set; }
         public string Description { get; set; }
         public Nullable<int> EmployeeID { get; set; }

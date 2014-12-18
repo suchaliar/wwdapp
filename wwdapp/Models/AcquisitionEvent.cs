@@ -21,6 +21,7 @@ namespace wwdapp.Models
         }
     
         public int Id { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> VendorID { get; set; }
         [Display(Name = "Amount Paid")]

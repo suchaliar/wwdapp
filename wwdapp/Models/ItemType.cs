@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class ItemType
     {
@@ -20,6 +21,7 @@ namespace wwdapp.Models
         }
     
         public int Id { get; set; }
+        [Display(Name = "Item Type")]
         public string ItemType1 { get; set; }
     
         public virtual ICollection<Item> Items { get; set; }

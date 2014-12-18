@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Service
     {
@@ -19,7 +20,11 @@ namespace wwdapp.Models
         public Nullable<int> AccountID { get; set; }
         public string Description { get; set; }
         public string Text { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Date Start")]
         public Nullable<System.DateTime> DateStart { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Date End")]
         public Nullable<System.DateTime> DateEnd { get; set; }
     
         public virtual Account Account { get; set; }
