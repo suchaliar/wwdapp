@@ -31,9 +31,11 @@ namespace wwdapp.Models
         public Nullable<int> AdministrativeContactInformationID { get; set; }
         [Display(Name = "Created On")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> CreatedOn { get; set; }
         [Display(Name = "Expires On")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> ExpiresOn { get; set; }
     
         public virtual Account Account { get; set; }

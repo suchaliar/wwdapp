@@ -11,16 +11,25 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class SoftwareInstallation
     {
         public int Id { get; set; }
         public Nullable<int> AccountID { get; set; }
         public Nullable<int> EmployeeID { get; set; }
+        [Display(Name = "Software Name")]
         public string SoftwareName { get; set; }
         public string Version { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "License Start")]
         public Nullable<System.DateTime> LicenseStart { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "License End")]
         public Nullable<System.DateTime> LicenseEnd { get; set; }
+        [Display(Name = "Machine Installed On")]
         public string MachineInstalledOn { get; set; }
         public string Description { get; set; }
     

@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Item
     {
@@ -18,6 +19,7 @@ namespace wwdapp.Models
         public string Name { get; set; }
         public string Model { get; set; }
         public string Description { get; set; }
+        [DataType(DataType.Currency)]
         public Nullable<decimal> Cost { get; set; }
         public Nullable<int> AcquisitionEventID { get; set; }
         public Nullable<int> ItemStatusID { get; set; }

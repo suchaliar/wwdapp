@@ -27,6 +27,7 @@ namespace wwdapp.Models
         public Nullable<int> AuthorID { get; set; }
         public string Text { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Modified")]
         public Nullable<System.DateTime> Date { get; set; }
     

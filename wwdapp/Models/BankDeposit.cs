@@ -16,6 +16,8 @@ namespace wwdapp.Models
     public partial class BankDeposit
     {
         public int Id { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Date { get; set; }
         [DataType(DataType.Currency)]
         public Nullable<decimal> Amount { get; set; }

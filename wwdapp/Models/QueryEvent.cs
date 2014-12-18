@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class QueryEvent
     {
@@ -18,6 +19,8 @@ namespace wwdapp.Models
         public string Name { get; set; }
         public Nullable<int> ContactInformationID { get; set; }
         public string Description { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> StatusID { get; set; }
         public Nullable<int> TypeID { get; set; }

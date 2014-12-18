@@ -11,6 +11,7 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Project
     {
@@ -21,7 +22,13 @@ namespace wwdapp.Models
         }
     
         public int Id { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date Start")]
         public Nullable<System.DateTime> DateStart { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date Complete")]
         public Nullable<System.DateTime> DateComplete { get; set; }
         public string Description { get; set; }
         public Nullable<int> AccountID { get; set; }

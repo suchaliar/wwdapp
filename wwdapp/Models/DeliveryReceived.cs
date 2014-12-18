@@ -23,11 +23,13 @@ namespace wwdapp.Models
         public int Id { get; set; }
         [Display(Name = "Date Ordered")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> DateOrdered { get; set; }
         public Nullable<int> EmployeeOrderedID { get; set; }
         public string Description { get; set; }
         [Display(Name = "Date Received")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> DateReceived { get; set; }
         public Nullable<int> EmployeeReceivingID { get; set; }
     

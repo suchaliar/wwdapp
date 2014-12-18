@@ -19,7 +19,6 @@ namespace wwdapp.Models
         public string Name { get; set; }
         public Nullable<int> ContactInformationID { get; set; }
         public string Description { get; set; }
-        [Display(Name = "Account")]
         public Nullable<int> AccountID { get; set; }
     
         public virtual Account Account { get; set; }

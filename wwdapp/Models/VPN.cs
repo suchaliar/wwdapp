@@ -11,16 +11,21 @@ namespace wwdapp.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class VPN
     {
         public int Id { get; set; }
         public Nullable<int> AccountID { get; set; }
         public Nullable<int> ClassID { get; set; }
+        [Display(Name = "IP Address")]
         public string IPAddress { get; set; }
+        [Display(Name = "Virtual IP Range")]
         public string VirtualIPRange { get; set; }
+        [Display(Name = "Allowed LAN Access")]
         public string AllowedLANAccess { get; set; }
         public string Name { get; set; }
+        [Display(Name = "Needed By")]
         public string NeededBy { get; set; }
         public string Purpose { get; set; }
         public Nullable<int> ProtocolID { get; set; }

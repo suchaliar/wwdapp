@@ -7,23 +7,16 @@
 <h2>Details</h2>
 
 <div>
-    <h4>SupportAgreement</h4>
+    <h4>Support Agreement</h4>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.Text)
+            @Html.DisplayNameFor(model => model.Account.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Text)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.Account.Name)
         </dd>
 
         <dt>
@@ -43,11 +36,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Account.Name)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Account.Name)
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
         </dd>
 
     </dl>
