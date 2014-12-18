@@ -42,9 +42,11 @@ namespace wwdapp.Models
         [Display(Name = "Last")]
         public string LastName { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> DOB { get; set; }
         public string SSN { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Hire Date")]
         public Nullable<System.DateTime> HireDate { get; set; }
         public Nullable<int> EmployeeTypeID { get; set; }

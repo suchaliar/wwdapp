@@ -26,9 +26,11 @@ namespace wwdapp.Models
         public Nullable<int> EmployeeID { get; set; }
         public Nullable<int> StatusID { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Opened")]
         public Nullable<System.DateTime> DateOpened { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Closed")]
         public Nullable<System.DateTime> DateClosed { get; set; }
         [DataType(DataType.MultilineText)]

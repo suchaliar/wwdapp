@@ -20,6 +20,7 @@ namespace wwdapp.Models
         [DataType(DataType.Currency)]
         public Nullable<decimal> Amount { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Date { get; set; }
         public string Description { get; set; }
         public Nullable<int> EmployeeID { get; set; }

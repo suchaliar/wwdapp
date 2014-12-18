@@ -22,9 +22,11 @@ namespace wwdapp.Models
         public string SoftwareName { get; set; }
         public string Version { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "License Start")]
         public Nullable<System.DateTime> LicenseStart { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "License End")]
         public Nullable<System.DateTime> LicenseEnd { get; set; }
         [Display(Name = "Machine Installed On")]

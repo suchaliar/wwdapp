@@ -20,6 +20,7 @@ namespace wwdapp.Models
         public Nullable<int> ContactInformationID { get; set; }
         public string Description { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> StatusID { get; set; }
         public Nullable<int> TypeID { get; set; }

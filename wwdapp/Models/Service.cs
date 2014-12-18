@@ -21,9 +21,11 @@ namespace wwdapp.Models
         public string Description { get; set; }
         public string Text { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Start")]
         public Nullable<System.DateTime> DateStart { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date End")]
         public Nullable<System.DateTime> DateEnd { get; set; }
     

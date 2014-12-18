@@ -20,9 +20,11 @@ namespace wwdapp.Models
         public Nullable<int> EmployeeID { get; set; }
         public string Description { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Time Start")]
         public Nullable<System.DateTime> TimeStart { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Time End")]
         public Nullable<System.DateTime> TimeEnd { get; set; }
         [Display(Name = "Materials Used")]

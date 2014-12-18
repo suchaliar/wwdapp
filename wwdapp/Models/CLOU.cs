@@ -20,6 +20,7 @@ namespace wwdapp.Models
         public string Description { get; set; }
         public Nullable<int> EmployeeID { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Date { get; set; }
     
         public virtual Employee Employee { get; set; }
