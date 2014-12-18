@@ -48,11 +48,18 @@ namespace wwdapp.Controllers
         }
 
         // GET: SupportEvents/Create
-        public ActionResult Create()
+        public ActionResult Create(int? TicketID)
         {
             ViewBag.EmployeeID = new SelectList(db.Employees, "Id", "NameFull");
             ViewBag.ProcedureID = new SelectList(db.Procedures, "Id", "Name");
-            ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Id");
+            if (TicketID == null)
+            {
+                ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Id");
+            }
+            else
+            {
+                ViewBag.TicketID = new SelectList(db.Tickets, "Id", "Id", TicketID);
+            }
             return View();
         }
 
